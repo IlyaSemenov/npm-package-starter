@@ -8,5 +8,7 @@ module.exports = {
 	rules: {
 		"prettier/prettier": "warn",
 		"simple-import-sort/sort": "warn",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
 	},
 }
