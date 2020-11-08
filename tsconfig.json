@@ -7,7 +7,7 @@
 		"target": "ES2020",
 		"baseUrl": ".",
 		"paths": {
-			"dayjs_isodate": ["./src"]
+			"mylib": ["./src"]
 		}
 	},
 	"include": ["src"]

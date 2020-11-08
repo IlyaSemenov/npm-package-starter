@@ -17,6 +17,10 @@ Edit `package.json`:
 - description
 - repository
 
+Edit `tsconfig.json`:
+
+- compilerOptions.paths
+
 ---
 
 Install development dependencies:
