@@ -7,7 +7,7 @@ git init .
 gh repo create
 ```
 
-Note: if the repo already existed, make sure its main branch is `master` and not `main`. This is important for Travis CI and semantic-release.
+Note: if the repo already existed, make sure its main branch is `master` and not `main`. This is important for CI and semantic-release.
 
 ---
 
@@ -63,15 +63,28 @@ npm pack && rm *.tgz
 
 ---
 
-- Open https://travis-ci.org/
-- My repositories > Add > (search) > On > Settings > Environment Variables:
-  - `GH_TOKEN` > branch: master > Add
-  - `NPM_TOKEN` > branch: master > Add
-
----
-
 ```
 git add .
 git commit -m "Initial release"
 git push -u origin master
 ```
+
+---
+
+Setup Circle CI:
+
+- Open https://app.circleci.com/settings/project/github/IlyaSemenov/mylib/environment-variables
+  - `GH_TOKEN`
+  - `NPM_TOKEN`
+- Open https://app.circleci.com/projects/project-setup/github/IlyaSemenov/mylib
+  - Use Existing Config
+  - Start Building
+
+---
+
+Alternative: Setup Travis CI (disclaimer: instructions could be outdated, my Travis CI account is broken).
+
+- Open https://travis-ci.org/
+- My repositories > Add > (search) > On > Settings > Environment Variables:
+  - `GH_TOKEN` > branch: master > Add
+  - `NPM_TOKEN` > branch: master > Add
