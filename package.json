@@ -17,17 +17,6 @@
     "prepublish": "yarn build",
     "lint": "eslint --fix '**/*.{js,ts}'"
   },
-  "tap": {
-    "coverage": false,
-    "node-arg": [
-      "-r",
-      "tsconfig-paths/register"
-    ],
-    "test-env": [
-      "TS_NODE_TRANSPILE_ONLY=1",
-      "TS_NODE_COMPILER_OPTIONS={\"module\":\"commonjs\"}"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
