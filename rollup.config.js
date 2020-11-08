@@ -15,4 +15,5 @@ export default {
 			tsconfigOverride: { exclude: ["**/*.test.ts"] },
 		}),
 	],
+	// external: ["mydep"],
 }
