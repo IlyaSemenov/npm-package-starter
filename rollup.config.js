@@ -1,19 +1,20 @@
 import cleaner from "rollup-plugin-cleaner"
-import typescript from "rollup-plugin-typescript2"
+import dts from "rollup-plugin-dts"
+import esbuild from "rollup-plugin-esbuild"
 
-export default {
-	input: "src/index.ts",
-	output: {
-		file: "dist/index.js",
-		format: "cjs",
-		sourcemap: true,
-		exports: "auto",
+export default [
+	{
+		input: "src/index.ts",
+		output: {
+			file: "dist/index.js",
+			format: "cjs",
+			sourcemap: true,
+		},
+		plugins: [cleaner({ targets: ["./dist/"] }), esbuild()],
 	},
-	plugins: [
-		cleaner({ targets: ["./dist/"] }),
-		typescript({
-			tsconfigOverride: { exclude: ["**/*.test.ts"] },
-		}),
-	],
-	// external: ["mydep"],
-}
+	{
+		input: "src/index.ts",
+		output: { file: "dist/index.d.ts", format: "es" },
+		plugins: [dts()],
+	},
+]
