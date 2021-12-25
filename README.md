@@ -65,7 +65,7 @@ npm pack && rm *.tgz
 
 ```
 git add .
-git commit -m "Initial release"
+git commit -m "feat: initial release"
 git push -u origin master
 ```
 
