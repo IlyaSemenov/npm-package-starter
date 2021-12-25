@@ -39,7 +39,7 @@ yarn build
 
 ---
 
-Put tests to `src/**/*.test.ts`, run with:
+Put tests under `src` and `tests` as `*.test.ts`, run with:
 
 ```
 yarn test
