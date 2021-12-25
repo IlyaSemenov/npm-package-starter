@@ -4,7 +4,7 @@
   "version": "0.0.0-development",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/IlyaSemenov/mylib"
   },
   "author": "Ilya Semenov",
   "license": "MIT",
