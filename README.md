@@ -71,20 +71,7 @@ git push -u origin master
 
 ---
 
-Setup Circle CI:
+Setup Github Actions:
 
-- Open https://app.circleci.com/settings/project/github/IlyaSemenov/mylib/environment-variables
-  - `GH_TOKEN`
-  - `NPM_TOKEN`
-- Open https://app.circleci.com/projects/project-setup/github/IlyaSemenov/mylib
-  - Use Existing Config
-  - Start Building
-
----
-
-Alternative: Setup Travis CI (disclaimer: instructions could be outdated, my Travis CI account is broken).
-
-- Open https://travis-ci.org/
-- My repositories > Add > (search) > On > Settings > Environment Variables:
-  - `GH_TOKEN` > branch: master > Add
-  - `NPM_TOKEN` > branch: master > Add
+- Open https://github.com/IlyaSemenov/mylib/settings/secrets/actions
+- Click New repository secret > `NPM_TOKEN`
