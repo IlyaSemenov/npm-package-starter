@@ -15,14 +15,14 @@
   "files": [
     "dist",
     "src",
-    "!**/*.test.*"
+    "!src/**/*.test.*"
   ],
   "scripts": {
-    "test": "tap '{src,tests}/**/*.test.ts'",
     "build": "tsup",
-    "prepack": "npm run build",
     "lint": "eslint --fix '**/*.{js,ts}'",
-    "prepare": "husky install"
+    "prepack": "npm run build",
+    "prepare": "husky install",
+    "test": "tap '{src,tests}/**/*.test.ts'"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
