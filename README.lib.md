@@ -2,8 +2,8 @@
 
 ## Install
 
-```
-yarn add mylib
+```sh
+npm install mylib
 ```
 
 ## Use

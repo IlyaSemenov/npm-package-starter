@@ -1,3 +1,3 @@
 /dist/
-tap-snapshots
+tap-snapshots/
 !.eslintrc.js

@@ -26,7 +26,7 @@ Edit `tsconfig.json`:
 Install development dependencies:
 
 ```
-yarn
+pnpm i
 ```
 
 ---
@@ -34,7 +34,7 @@ yarn
 Put sources to `src/index.ts`, build with:
 
 ```
-yarn build
+pnpm build
 ```
 
 ---
@@ -42,7 +42,7 @@ yarn build
 Put tests under `src` and `tests` as `*.test.ts`, run with:
 
 ```
-yarn test
+pnpm test
 ```
 
 ---
