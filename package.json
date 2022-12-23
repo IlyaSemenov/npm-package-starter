@@ -24,11 +24,10 @@
     "prepare": "husky install",
     "test": "tap '{src,tests}/**/*.test.ts'"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
-    "@tsconfig/node14": "1.0.1",
+    "@tsconfig/node18": "~1.0.1",
     "@types/tap": "15.0.5",
     "@typescript-eslint/eslint-plugin": "5.11.0",
     "@typescript-eslint/parser": "5.11.0",
@@ -43,6 +42,6 @@
     "prettier": "2.5.1",
     "tap": "15.1.6",
     "tsup": "5.11.13",
-    "typescript": "4.5.5"
+    "typescript": "~4.9.4"
   }
 }
