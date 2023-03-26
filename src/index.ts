@@ -1,3 +1,3 @@
-export function foo() {
-	return true
+export function square(x: number) {
+	return x * x
 }

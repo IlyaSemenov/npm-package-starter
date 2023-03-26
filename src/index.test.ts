@@ -1,5 +1,7 @@
-import tap from "tap"
+import { square } from "mylib"
+import { expect, test } from "vitest"
 
-import { foo } from "."
-
-tap.ok(foo(), "it works")
+test("it works", () => {
+	expect(square(3)).toBe(9)
+	expect(square(-5)).toBe(25)
+})

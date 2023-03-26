@@ -22,17 +22,14 @@
     "lint": "eslint --fix '**/*.{js,ts}'",
     "prepack": "npm run build",
     "prepare": "husky install",
-    "test": "tap '{src,tests}/**/*.test.ts'"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@commitlint/cli": "~17.5.0",
     "@commitlint/config-conventional": "~17.4.4",
     "@tsconfig/node18": "~1.0.1",
-    "@types/tap": "~15.0.8",
     "@typescript-eslint/eslint-plugin": "~5.56.0",
     "@typescript-eslint/parser": "~5.56.0",
-    "esbuild": "~0.17.14",
-    "esbuild-runner": "~2.2.2",
     "eslint": "~8.36.0",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-prettier": "~4.2.1",
@@ -40,8 +37,9 @@
     "husky": "~8.0.3",
     "lint-staged": "~13.2.0",
     "prettier": "~2.8.7",
-    "tap": "~16.3.4",
     "tsup": "~6.7.0",
-    "typescript": "~5.0.2"
+    "typescript": "~5.0.2",
+    "vite-tsconfig-paths": "~4.0.7",
+    "vitest": "~0.29.7"
   }
 }
