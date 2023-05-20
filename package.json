@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "lint": "eslint --fix '**/*.{js,ts}'",
+    "lint": "eslint --fix '**/*.{cjs,js,ts}'",
     "prepack": "npm run build",
     "prepare": "husky install",
     "test": "vitest run"
