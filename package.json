@@ -1,7 +1,7 @@
 {
   "name": "mylib",
   "description": "",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/IlyaSemenov/mylib"
@@ -23,7 +23,8 @@
     "lint": "eslint --fix '**/*.{cjs,js,ts}'",
     "prepack": "npm run build",
     "prepare": "husky install",
-    "test": "vitest run"
+    "test": "vitest run",
+    "release": "npm run prepack && release-it"
   },
   "devDependencies": {
     "@commitlint/cli": "~17.6.3",
@@ -38,6 +39,7 @@
     "husky": "~8.0.3",
     "lint-staged": "~13.2.2",
     "prettier": "~2.8.8",
+    "release-it": "~15.10.3",
     "tsup": "~6.7.0",
     "typescript": "~5.0.4",
     "vite-tsconfig-paths": "~4.2.0",

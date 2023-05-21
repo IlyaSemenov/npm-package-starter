@@ -7,8 +7,6 @@ git init .
 gh repo create
 ```
 
-Note: if the repo already existed, make sure its main branch is `master` and not `main`. This is important for CI and semantic-release.
-
 ---
 
 Edit `package.json`:
@@ -55,14 +53,6 @@ mv README.lib.md README.md
 
 ---
 
-Test npm packaging:
-
-```
-npm pack && rm *.tgz
-```
-
----
-
 ```
 git add .
 git commit -m "feat: initial release"
@@ -71,7 +61,8 @@ git push -u origin master
 
 ---
 
-Setup Github Actions:
+Publish to NPM:
 
-- Open https://github.com/IlyaSemenov/mylib/settings/secrets/actions
-- Click New repository secret > `NPM_TOKEN`
+```
+pnpm release
+```
