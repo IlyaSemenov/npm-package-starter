@@ -21,14 +21,12 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint --fix '**/*.{cjs,js,ts}'",
-    "prepack": "npm run build",
     "prepare": "husky install",
-    "test": "vitest run",
-    "release": "npm run prepack && release-it"
+    "prepublishOnly": "pnpm build",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@changesets/cli": "^2.26.2",
     "@tsconfig/node20": "^20.1.2",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
@@ -39,7 +37,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "release-it": "^16.2.1",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite-tsconfig-paths": "^4.2.1",
