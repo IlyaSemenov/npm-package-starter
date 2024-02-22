@@ -1,41 +1,36 @@
 {
   "name": "mylib",
-  "description": "",
+  "type": "module",
   "version": "0.0.0",
+  "description": "",
+  "author": "Ilya Semenov",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/IlyaSemenov/mylib"
   },
-  "author": "Ilya Semenov",
-  "license": "MIT",
-  "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "source": "src/index.ts",
   "files": [
+    "!src/**/*.test.*",
     "dist",
-    "src",
-    "!src/**/*.test.*"
+    "src"
   ],
   "scripts": {
     "build": "tsup",
-    "lint": "eslint --fix '**/*.{cjs,js,ts}'",
+    "lint": "eslint --fix .",
     "prepare": "husky install",
     "prepublishOnly": "pnpm build",
     "test": "vitest run"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.6.4",
     "@changesets/cli": "^2.26.2",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint": "^8.56.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "prettier": "^3.0.3",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite-tsconfig-paths": "^4.2.1",

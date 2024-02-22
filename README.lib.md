@@ -9,5 +9,5 @@ npm install mylib
 ## Use
 
 ```ts
-import mylib from mylib
+import mylib from "mylib"
 ```
