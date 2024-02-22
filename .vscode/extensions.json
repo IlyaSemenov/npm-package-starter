@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "GraphQL.vscode-graphql",
+    "GraphQL.vscode-graphql-syntax",
+    "syler.sass-indented",
+    "vue.vscode-typescript-vue-plugin",
+    "Vue.volar"
+  ]
+}
