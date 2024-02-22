@@ -1,9 +1,15 @@
 {
-	"extends": "@tsconfig/node20",
-	"include": ["src", "tests"],
-	"compilerOptions": {
-		"paths": {
-			"mylib": ["./src"]
-		}
-	}
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "mylib": ["./src"]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
 }
