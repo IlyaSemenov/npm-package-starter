@@ -1,6 +1,6 @@
 # Publish a new Node.js/Typescript project at NPM
 
-```
+```sh
 npx degit IlyaSemenov/npm-package-starter mylib
 cd mylib
 git init .
@@ -23,7 +23,7 @@ Edit `tsconfig.json`:
 
 Install development dependencies:
 
-```
+```sh
 pnpm i
 ```
 
@@ -31,7 +31,7 @@ pnpm i
 
 Put sources to `src/index.ts`, build with:
 
-```
+```sh
 pnpm build
 ```
 
@@ -39,7 +39,7 @@ pnpm build
 
 Put tests under `src` and `tests` as `*.test.ts`, run with:
 
-```
+```sh
 pnpm test
 ```
 
@@ -47,22 +47,50 @@ pnpm test
 
 Prepare package documentation:
 
-```
+```sh
 mv README.lib.md README.md
 ```
 
 ---
 
-```
+Commit:
+
+```sh
 git add .
-git commit -m "feat: initial release"
-git push -u origin master
+git commit -m "Initial release"
+```
+
+Version package(s):
+
+```sh
+pnpx changeset
+# choose major
+# Description: Initial release.
+git add .
+git commit --amend
 ```
 
 ---
 
-Publish to NPM:
+Setup Github Actions:
 
+```sh
+gh repo view --web
 ```
-pnpm release
+
+Under Settings > Secrets and variables > Actions > New repository secret:
+
+- Add new secret `NPM_TOKEN`.
+
+Under Settings > Actions > General > Workflow permissions:
+
+- Choose: Read and write permissions.
+- Enable: Allow GitHub Actions to create and approve pull requests.
+
+Push repo:
+
+```sh
+git push -u origin master
 ```
+
+Under Pull Requests, open the new "Version Packages" PR and click Rebase and Merge.
