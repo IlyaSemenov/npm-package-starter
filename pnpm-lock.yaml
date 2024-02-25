@@ -20,6 +20,9 @@ devDependencies:
   lint-staged:
     specifier: ^15.2.2
     version: 15.2.2
+  tsconfig-vite-node:
+    specifier: ^1.1.2
+    version: 1.1.2
   tsup:
     specifier: ^8.0.2
     version: 8.0.2(typescript@5.3.3)
@@ -4495,6 +4498,10 @@ packages:
         optional: true
     dependencies:
       typescript: 5.3.3
+    dev: true
+
+  /tsconfig-vite-node@1.1.2:
+    resolution: {integrity: sha512-7QOQ0Rq6NrRjQVPVETQlGsEf6CkHjD+Xxio5EnPe/+IZabhdmaTZ3iRxaHBuEfWKyA8CnjmjLxat263+Pd1Iyw==}
     dev: true
 
   /tslib@2.6.2:
