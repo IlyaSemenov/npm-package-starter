@@ -8,15 +8,12 @@ npx degit IlyaSemenov/npm-package-starter --force
 
 ---
 
+Search and replace `mylib` with `the-actual-lib-name`.
+
 Edit `package.json`:
 
-- name
 - description
 - repository
-
-Edit `tsconfig.json`:
-
-- compilerOptions.paths
 
 ---
 
@@ -57,16 +54,6 @@ Commit:
 ```sh
 git add .
 git commit -m "Initial release"
-```
-
-Version package(s):
-
-```sh
-pnpx changeset
-# choose major
-# Description: Initial release.
-git add .
-git commit --amend
 ```
 
 ---
