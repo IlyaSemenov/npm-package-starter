@@ -1,10 +1,9 @@
 # Publish a new Node.js/Typescript project at NPM
 
 ```sh
-npx degit IlyaSemenov/npm-package-starter mylib
-cd mylib
-git init .
-gh repo create
+gh repo create mylib --public
+gh repo clone mylib
+npx degit IlyaSemenov/npm-package-starter --force
 ```
 
 ---
