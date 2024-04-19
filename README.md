@@ -1,19 +1,21 @@
 # Publish a new Node.js/Typescript project at NPM
 
+Pick a name for the new project:
+
 ```sh
-gh repo create mylib --public
-gh repo clone mylib
+PROJECT=new-lib-name
+```
+
+Then:
+
+```sh
+gh repo create $PROJECT --public
+gh repo clone $PROJECT
+cd $PROJECT
 npx degit IlyaSemenov/npm-package-starter --force
 ```
 
----
-
-Search and replace `mylib` with `the-actual-lib-name`.
-
-Edit `package.json`:
-
-- description
-- repository
+Search and replace `mylib` with the new project name.
 
 ---
 
@@ -47,6 +49,8 @@ Prepare package documentation:
 mv README.lib.md README.md
 ```
 
+Fill `description` in `package.json`.
+
 ---
 
 Commit:
@@ -76,7 +80,7 @@ Under Settings > Actions > General > Workflow permissions:
 Push repo:
 
 ```sh
-git push -u origin master
+git push -u origin
 ```
 
 Under Pull Requests, open the new "Version Packages" PR and click Rebase and Merge.
