@@ -16,6 +16,7 @@ export default config(
           orderImportKind: "asc",
         },
       }],
+      "test/consistent-test-it": "off",
       "no-console": "warn",
       // One true brace style.
       "style/brace-style": ["error", "1tbs"],
