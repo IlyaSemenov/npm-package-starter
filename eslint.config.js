@@ -1,25 +1,38 @@
 import config from "@antfu/eslint-config"
+import simpleImportSort from "eslint-plugin-simple-import-sort"
 
 export default config(
   {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
     stylistic: {
       quotes: "double",
     },
     rules: {
-      // Always use { } after if/for.
+      // always add if { ... } braces
       "curly": ["error", "all"],
-      "import/order": ["error", {
-        // At least one new line between each group will be enforced, and new lines inside a group will be forbidden.
-        "newlines-between": "always",
-        "alphabetize": {
-          order: "asc",
-          orderImportKind: "asc",
-        },
-      }],
-      "test/consistent-test-it": "off",
+      // allow console.log
       "no-console": "warn",
-      // One true brace style.
+      // allow arrays [, a]
+      "no-sparse-arrays": "off",
+      // allow string + string
+      "prefer-template": "off",
+      // sort imports
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/order": "off",
+      "sort-imports": "off",
+      // place if { in same line
       "style/brace-style": ["error", "1tbs"],
+      // allow both it() and test()
+      "test/consistent-test-it": "off",
+      // allow @ts-ignore
+      "ts/ban-ts-comment": "off",
+      // allow types instead of interfaces
+      "ts/consistent-type-definitions": "off",
+      // allow interace method as arrow fn
+      "ts/method-signature-style": "off",
     },
   },
 )
