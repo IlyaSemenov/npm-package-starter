@@ -2,6 +2,7 @@
   "name": "mylib",
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "pnpm@8.15.8",
   "description": "",
   "author": "Ilya Semenov",
   "license": "MIT",
@@ -23,6 +24,10 @@
     "dist",
     "src"
   ],
+  "engines": {
+    "node": "20",
+    "pnpm": "8"
+  },
   "scripts": {
     "build": "tsup",
     "lint": "eslint --fix .",
