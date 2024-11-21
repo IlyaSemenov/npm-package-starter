@@ -1,3 +1,3 @@
-import { defineEslintConfig } from "@ilyasemenov/lint-config"
+import { defineConfig } from "@ilyasemenov/eslint-config"
 
-export default defineEslintConfig()
+export default defineConfig()

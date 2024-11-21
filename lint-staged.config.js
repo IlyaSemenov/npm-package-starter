@@ -1,3 +1,3 @@
 export default {
-  "*.{cjs,js,ts,vue,json,md,yaml,toml,css,scss}": "eslint --fix",
+  "*.{cjs,js,ts,json,md,yaml,toml}": "eslint --fix",
 }
