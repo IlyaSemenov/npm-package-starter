@@ -27,7 +27,7 @@ pnpm i
 
 ---
 
-Put sources to `src/index.ts`, build with:
+Write sources under `src`, build with:
 
 ```sh
 pnpm build
@@ -35,7 +35,7 @@ pnpm build
 
 ---
 
-Put tests under `src` and `tests` as `*.test.ts`, run with:
+Write tests under `src` and `tests` as `*.test.ts`, run with:
 
 ```sh
 pnpm test
