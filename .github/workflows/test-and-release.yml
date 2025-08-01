@@ -25,7 +25,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 22.7
+          node-version: 24.5
           cache: pnpm
 
       - name: Install deps
