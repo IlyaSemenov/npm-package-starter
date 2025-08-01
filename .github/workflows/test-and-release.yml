@@ -40,7 +40,9 @@ jobs:
         if: ${{ github.ref == env.MAIN_REF }}
         run: |
           if pnpx @changesets/cli status --output=release.json; then
-            echo "CHANGED_PACKAGES=$(jq -r '.releases | map(.name + "@" + .newVersion) | join(", ")' release.json)" >> "$GITHUB_ENV"
+            echo "CHANGED_PACKAGES=$(jq -r '.releases | map(.newVersion) | join(", ")' release.json)" >> "$GITHUB_ENV"
+            # For monorepo, replace with:
+            # echo "CHANGED_PACKAGES=$(jq -r '.releases | map(.name + "@" + .newVersion) | join(", ")' release.json)" >> "$GITHUB_ENV"
             rm release.json
           fi
 
