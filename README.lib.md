@@ -10,4 +10,6 @@ npm install mylib
 
 ```ts
 import mylib from "mylib"
+
+console.log("It worked!")
 ```
