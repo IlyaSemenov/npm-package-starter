@@ -38,14 +38,14 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
+    "@changesets/cli": "^2.29.7",
     "@ilyasemenov/eslint-config": "^1.4.2",
-    "eslint": "^9.33.0",
+    "eslint": "^9.36.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
-    "tsconfig-vite-node": "^1.1.2",
+    "lint-staged": "^16.2.3",
+    "tsconfig-vite-node": "^1.2.0",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   }
