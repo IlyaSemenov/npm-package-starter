@@ -84,3 +84,5 @@ git push -u origin
 ```
 
 Under Pull Requests, open the new "Version Packages" PR and click Rebase and Merge.
+
+After first publish, go to <https://www.npmjs.com/package/{PACKAGE_NAME}/access> and setup OIDC. Remove `NPM_TOKEN` from `.github/workflows/test-and-release.yml`, commit and push the updated workflow.
