@@ -3,7 +3,7 @@
 Pick a name for the new project:
 
 ```sh
-PROJECT=new-lib-name
+PROJECT=mylib
 ```
 
 Then:
