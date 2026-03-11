@@ -43,6 +43,41 @@ pnpm test
 
 ---
 
+## Linter
+
+This starter uses [Biome](https://biomejs.dev/) by default. If you stay with Biome, remove the unused ESLint config:
+
+```sh
+rm eslint.config.js
+```
+
+To switch to ESLint instead:
+
+```sh
+pnpm remove @biomejs/biome
+pnpm add -D eslint @ilyasemenov/eslint-config
+rm biome.jsonc
+```
+
+Update `scripts` in `package.json`:
+
+```json
+"lint": "eslint --fix ."
+```
+
+Update `lefthook.yml`:
+
+```yaml
+pre-commit:
+  commands:
+    eslint:
+      glob: "**/*.{cjs,js,ts,json,md,yaml,toml}"
+      run: ./node_modules/.bin/eslint --fix --no-warn-ignored {staged_files}
+      stage_fixed: true
+```
+
+---
+
 Prepare package documentation:
 
 ```sh

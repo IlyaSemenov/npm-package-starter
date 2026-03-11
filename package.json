@@ -32,15 +32,14 @@
   },
   "scripts": {
     "build": "tsup",
-    "lint": "eslint --fix .",
+    "lint": "biome check --write .",
     "prepare": "lefthook install",
     "prepublishOnly": "pnpm build",
     "test": "vitest run"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.6",
     "@changesets/cli": "^2.29.7",
-    "@ilyasemenov/eslint-config": "^1.4.2",
-    "eslint": "^9.36.0",
     "tsconfig-vite-node": "^1.2.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
