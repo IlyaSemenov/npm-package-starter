@@ -1,0 +1,22 @@
+{
+  "name": "mylib",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "bun@1.2.6",
+  "description": "",
+  "author": "Ilya Semenov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IlyaSemenov/mylib"
+  },
+  "scripts": {
+    "lint": "biome check --write .",
+    "prepare": "lefthook install",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.6",
+    "typescript": "^5.9.3"
+  }
+}

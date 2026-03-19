@@ -1,130 +1,112 @@
-# Publish a new Node.js/Typescript project at NPM
+# npm-package-starter
 
-Pick a name for the new project:
+This repository is now a **two-layer starter toolkit**.
+
+## Layer 1: blocks
+
+Reusable building blocks live under `blocks/`.
+
+Current blocks:
+
+- `blocks/bun-test-tsconfig` — Bun package manager + Bun test + TypeScript base
+- `blocks/pnpm-vitest-tsconfig` — pnpm + Vitest + TypeScript base
+- `blocks/biome` — Biome config
+- `blocks/eslint` — ESLint config
+- `blocks/github-action` — basic GitHub Actions CI for Bun projects
+- `blocks/readme` — package README template
+- `blocks/mise-lefthook` — local tooling bootstrap
+
+## Layer 2: skills
+
+Skills live under `skills/`.
+
+Current skills:
+
+- `skills/scaffold-bun-biome-package` — build a new project from the Bun + Biome blocks
+- `skills/sync-project` — placeholder for future sync logic
+
+---
+
+# How to assemble a new Bun + Biome repo from this starter
+
+For now the canonical path is manual assembly from blocks.
+
+## 1. Create a new empty repository
 
 ```sh
 PROJECT=mylib
+
+gh repo create "$PROJECT" --public
 ```
 
-Then:
+## 2. Clone both repositories
+
+Clone this toolkit somewhere temporary:
 
 ```sh
-gh repo create $PROJECT --public
-gh repo clone $PROJECT
-cd $PROJECT
-npx degit IlyaSemenov/npm-package-starter --force
+gh repo clone IlyaSemenov/npm-package-starter /tmp/npm-package-starter
 ```
 
-Search and replace `mylib` with the new project name.
-
----
-
-Install development dependencies:
+Clone the new project:
 
 ```sh
-pnpm i
+gh repo clone "$PROJECT"
+cd "$PROJECT"
 ```
 
----
+## 3. Copy the required blocks
 
-Write sources under `src`, build with:
+For a Bun + Biome project, copy these blocks:
 
 ```sh
-pnpm build
+cp -R /tmp/npm-package-starter/blocks/bun-test-tsconfig/. .
+cp -R /tmp/npm-package-starter/blocks/biome/. .
+cp -R /tmp/npm-package-starter/blocks/readme/. .
+cp -R /tmp/npm-package-starter/blocks/mise-lefthook/. .
 ```
 
----
-
-Write tests under `src` and `tests` as `*.test.ts`, run with:
+Optional: add CI now.
 
 ```sh
-pnpm test
+cp -R /tmp/npm-package-starter/blocks/github-action/. .
 ```
 
----
+## 4. Replace placeholders
 
-## Linter
+Replace `mylib` in copied files with the real package name.
 
-This starter uses [Biome](https://biomejs.dev/) by default. If you stay with Biome, remove the unused ESLint config:
+At minimum check:
+
+- `package.json`
+- `README.md`
+
+## 5. Install dependencies
 
 ```sh
-rm eslint.config.js
+bun install
 ```
 
-To switch to ESLint instead:
+This will generate `bun.lock` for the new repository.
+
+## 6. Verify the project
 
 ```sh
-pnpm remove @biomejs/biome
-pnpm add -D eslint @ilyasemenov/eslint-config
-rm biome.jsonc
+bun test
+bun run lint
 ```
 
-Update `scripts` in `package.json`:
-
-```json
-"lint": "eslint --fix ."
-```
-
-Update `lefthook.yml`:
-
-```yaml
-pre-commit:
-  commands:
-    eslint:
-      glob: "**/*.{cjs,js,ts,json,md,yaml,toml}"
-      run: ./node_modules/.bin/eslint --fix --no-warn-ignored {staged_files}
-      stage_fixed: true
-```
-
----
-
-Prepare package documentation:
-
-```sh
-mv README.lib.md README.md
-```
-
-Fill `description` in `package.json`.
-
----
-
-Commit:
+## 7. Commit and push
 
 ```sh
 git add .
-git commit -m "Initial release"
+git commit -m "Initialize Bun + Biome package"
+git push -u origin main
 ```
 
 ---
 
-Setup Github Actions:
+## Notes
 
-```sh
-gh repo view --web
-```
-
-Under Settings > Secrets and variables > Actions > New repository secret:
-
-- Add new secret `NPM_TOKEN`.
-
-Under Settings > Actions > General > Workflow permissions:
-
-- Choose: Read and write permissions.
-- Enable: Allow GitHub Actions to create and approve pull requests.
-
-Push repo:
-
-```sh
-git push -u origin
-```
-
-Under Pull Requests, open the new "Version Packages" PR and click Rebase and Merge.
-
-After first publish, go to <https://www.npmjs.com/package/mylib/access> and setup OIDC:
-
-- Publisher: GitHub Actions
-- Organization or user: `IlyaSemenov`
-- Repository: `mylib`
-- Workflow filename: `test-and-release.yml`
-
- Remove `NPM_TOKEN` from `.github/workflows/test-and-release.yml`, commit and push the updated workflow.
+- The Bun + Biome path is the first supported path and the one the scaffold skill should use.
+- `pnpm-vitest-tsconfig` is kept as a separate block, but is not the default assembly path anymore.
+- `sync-project` exists only as a placeholder for now; do not treat it as implemented automation yet.
