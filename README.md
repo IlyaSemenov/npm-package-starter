@@ -1,130 +1,65 @@
-# Publish a new Node.js/Typescript project at NPM
+# npm-package-starter
 
-Pick a name for the new project:
+Starter toolkit for assembling TypeScript npm packages from reusable blocks.
 
-```sh
-PROJECT=mylib
-```
+## Quick start
 
-Then:
+The scaffold skill applies a block stack, installs the toolchain, and verifies that the result still builds, lints, and tests.
 
-```sh
-gh repo create $PROJECT --public
-gh repo clone $PROJECT
-cd $PROJECT
-npx degit IlyaSemenov/npm-package-starter --force
-```
-
-Search and replace `mylib` with the new project name.
-
----
-
-Install development dependencies:
+Start with empty folder:
 
 ```sh
-pnpm i
+mkdir mylib && cd mylib
+git init .
 ```
 
----
+### Codex
 
-Write sources under `src`, build with:
+Install the skill by cloning this repository into your local skills directory:
 
 ```sh
-pnpm build
+git clone https://github.com/IlyaSemenov/npm-package-starter.git ~/.agents/skills/npm-package-starter
 ```
 
----
+Then use the skill from Codex:
 
-Write tests under `src` and `tests` as `*.test.ts`, run with:
+```text
+$npm-scaffold
+```
+
+### Claude Code
+
+Install this repository as a Claude Code plugin:
 
 ```sh
-pnpm test
+claude /plugin install https://github.com/IlyaSemenov/npm-package-starter
 ```
 
----
-
-## Linter
-
-This starter uses [Biome](https://biomejs.dev/) by default. If you stay with Biome, remove the unused ESLint config:
+Then scaffold a new package:
 
 ```sh
-rm eslint.config.js
+claude "/npm-scaffold mylib"
 ```
 
-To switch to ESLint instead:
+## Repository layout
 
-```sh
-pnpm remove @biomejs/biome
-pnpm add -D eslint @ilyasemenov/eslint-config
-rm biome.jsonc
-```
+### Blocks (`blocks/`)
 
-Update `scripts` in `package.json`:
+Each block owns one concern. Copy full files as-is. When a block ships a fragment for an existing file, merge it into the file with the same path.
 
-```json
-"lint": "eslint --fix ."
-```
+| Block | Purpose |
+| --- | --- |
+| `base/` | Shared package skeleton and baseline project defaults |
+| `runtime/bun/` | Bun runtime for development and testing |
+| `runtime/pnpm/` | Node/pnpm runtime for development and testing |
+| `linting/biome/` | Biome linting and formatting |
+| `linting/eslint/` | ESLint linting and formatting |
 
-Update `lefthook.yml`:
+### Skills (`skills/`)
 
-```yaml
-pre-commit:
-  commands:
-    eslint:
-      glob: "**/*.{cjs,js,ts,json,md,yaml,toml}"
-      run: ./node_modules/.bin/eslint --fix --no-warn-ignored {staged_files}
-      stage_fixed: true
-```
+Skills orchestrate common workflows on top of the blocks.
 
----
-
-Prepare package documentation:
-
-```sh
-mv README.lib.md README.md
-```
-
-Fill `description` in `package.json`.
-
----
-
-Commit:
-
-```sh
-git add .
-git commit -m "Initial release"
-```
-
----
-
-Setup Github Actions:
-
-```sh
-gh repo view --web
-```
-
-Under Settings > Secrets and variables > Actions > New repository secret:
-
-- Add new secret `NPM_TOKEN`.
-
-Under Settings > Actions > General > Workflow permissions:
-
-- Choose: Read and write permissions.
-- Enable: Allow GitHub Actions to create and approve pull requests.
-
-Push repo:
-
-```sh
-git push -u origin
-```
-
-Under Pull Requests, open the new "Version Packages" PR and click Rebase and Merge.
-
-After first publish, go to <https://www.npmjs.com/package/mylib/access> and setup OIDC:
-
-- Publisher: GitHub Actions
-- Organization or user: `IlyaSemenov`
-- Repository: `mylib`
-- Workflow filename: `test-and-release.yml`
-
- Remove `NPM_TOKEN` from `.github/workflows/test-and-release.yml`, commit and push the updated workflow.
+| Skill | Purpose |
+| --- | --- |
+| `npm-scaffold` | Assemble a new package from the default block stack |
+| `npm-sync` | Inspect an existing project and prepare a sync plan against the blocks |

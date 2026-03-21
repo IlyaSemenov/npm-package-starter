@@ -1,0 +1,11 @@
+{
+  "packageManager": "bun@1.2.6",
+  "scripts": {
+    "test": "bun test",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@tsconfig/bun": "^1.0.10",
+    "@types/bun": "^1.2.6"
+  }
+}

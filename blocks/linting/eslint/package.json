@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "lint": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@ilyasemenov/eslint-config": "^1.4.2",
+    "eslint": "^9.35.0"
+  }
+}

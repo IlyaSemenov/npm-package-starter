@@ -1,0 +1,11 @@
+jobs:
+  test-and-release:
+    steps:
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm run build
+
+      - name: Test package
+        run: pnpm run test

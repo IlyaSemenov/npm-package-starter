@@ -2,7 +2,7 @@
   "extends": "../tsconfig",
   "compilerOptions": {
     "paths": {
-      "mylib": ["../src"]
+      "package-name": ["../src"]
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-mylib: major
+package-name: major
 ---
 
 Initial release.
