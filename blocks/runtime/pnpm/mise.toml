@@ -1,5 +1,5 @@
-[env]
-MISE_NODE_COREPACK = 1
-
 [tools]
 node = "24"
+
+[settings.node]
+corepack = true
