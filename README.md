@@ -47,19 +47,19 @@ claude "/npm-scaffold mylib"
 
 Each block owns one concern. Copy full files as-is. When a block ships a fragment for an existing file, merge it into the file with the same path.
 
-| Block | Purpose |
-| --- | --- |
-| `base/` | Shared package skeleton and baseline project defaults |
-| `runtime/bun/` | Bun runtime for development and testing |
-| `runtime/pnpm/` | Node/pnpm runtime for development and testing |
-| `linting/biome/` | Biome linting and formatting |
-| `linting/eslint/` | ESLint linting and formatting |
+| Block             | Purpose
+| ----------------- | ---
+| `base/`           | Shared package skeleton and baseline project defaults
+| `runtime/bun/`    | Bun runtime for development and testing
+| `runtime/pnpm/`   | Node/pnpm runtime for development and testing
+| `linting/biome/`  | Biome linting and formatting
+| `linting/eslint/` | ESLint linting and formatting
 
 ### Skills (`skills/`)
 
 Skills orchestrate common workflows on top of the blocks.
 
-| Skill | Purpose |
-| --- | --- |
-| `npm-scaffold` | Assemble a new package from the default block stack |
-| `npm-sync` | Inspect an existing project and prepare a sync plan against the blocks |
+| Skill          | Purpose
+| -------------- | ---
+| `npm-scaffold` | Assemble a new package from the default block stack
+| `npm-sync`     | Inspect an existing project and prepare a sync plan against the blocks

@@ -1,5 +1,11 @@
-# MD013: line length — too strict for prose and long code examples
-MD013: false
+# default first-line-heading is too strict for small instruction files like CLAUDE.md
+first-line-heading: false
 
-# MD060: table column style — disallow mixed aligned/compact columns
-MD060: false
+# default line-length is too strict for 'one sentence per line' formatting
+line-length: false
+
+table-column-style:
+  style: aligned
+
+table-pipe-style:
+  style: leading_only
