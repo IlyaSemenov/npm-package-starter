@@ -1,7 +1,8 @@
 jobs:
   test-and-release:
     steps:
-      - name: Setup node
+      # for npx publish
+      - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 24
