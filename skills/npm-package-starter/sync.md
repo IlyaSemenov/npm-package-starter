@@ -1,11 +1,7 @@
----
-name: npm-sync
-description: Assess an existing project against the starter blocks and prepare a sync plan.
----
+# Sync Workflow
 
-# npm-sync
-
-Map an existing project to the starter blocks and describe the drift.
+Map an existing project to the starter blocks.
+Describe the drift.
 
 ## Status
 

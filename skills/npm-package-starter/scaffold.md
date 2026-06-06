@@ -1,12 +1,7 @@
----
-name: npm-scaffold
-description: Assemble a new TypeScript npm package from the starter blocks.
-argument-hint: <package-name>
----
+# Scaffold Workflow
 
-# npm-scaffold
-
-Assemble a new package named **$ARGUMENTS** from the starter blocks.
+Assemble a new package from the starter blocks.
+Use the package name from the user request; if it is missing and cannot be derived from the target directory, ask before filling package metadata.
 
 ## Default stack
 
@@ -40,6 +35,5 @@ Always tell the user:
 
 ## Constraints
 
-- Treat block files as the source of truth.
 - Never guess repository owners or publish URLs.
 - Stop if a required block or fragment is missing.

@@ -1,65 +1,56 @@
 # npm-package-starter
 
-Starter toolkit for assembling TypeScript npm packages from reusable blocks.
+Starter skill for scaffolding TypeScript npm packages from reusable blocks, or assessing an existing package against the same starter.
 
-## Quick start
+The skill has two workflows:
 
-The scaffold skill applies a block stack, installs the toolchain, and verifies that the result still builds, lints, and tests.
+- create a new TypeScript package project
+- review an existing package project and report how it differs from the starter
 
-Start with empty folder:
+## Install
+
+```bash
+npx skills add -g https://github.com/IlyaSemenov/npm-package-starter
+```
+
+## Usage
+
+Use the first argument to select the workflow:
+
+- `create` or `scaffold`: create a new TypeScript npm package project
+- `update` or `sync`: inspect an existing project and prepare a sync plan
+
+To create a project, start from an empty directory:
 
 ```sh
 mkdir mylib && cd mylib
 git init .
 ```
 
-### Codex
-
-Install the skill by cloning this repository into your local skills directory:
-
-```sh
-git clone https://github.com/IlyaSemenov/npm-package-starter.git ~/.agents/skills/npm-package-starter
-```
-
-Then use the skill from Codex:
+Ask the agent to use the scaffold workflow:
 
 ```text
-$npm-scaffold
+$npm-package-starter scaffold mylib
 ```
 
-### Claude Code
+For an existing project:
 
-Install this repository as a Claude Code plugin:
-
-```sh
-claude /plugin install https://github.com/IlyaSemenov/npm-package-starter
+```text
+$npm-package-starter update
 ```
 
-Then scaffold a new package:
+## What It Builds
 
-```sh
-claude "/npm-scaffold mylib"
-```
+The scaffold workflow creates a ready-to-publish TypeScript package with build, test, lint, release, and CI setup already wired together.
 
-## Repository layout
+What the starter configures:
 
-### Blocks (`blocks/`)
+- Runtime: Bun by default, or Node.js with pnpm.
+- Linting and formatting: Biome by default, or ESLint.
+- Tool versions managed with `mise`.
+- Git hooks managed with `lefthook`.
+- Releases managed with Changesets.
+- Test and release automation through GitHub Actions.
+- Markdown linting and editor defaults.
 
-Each block owns one concern. Copy full files as-is. When a block ships a fragment for an existing file, merge it into the file with the same path.
-
-| Block             | Purpose
-| ----------------- | ---
-| `base/`           | Shared package skeleton and baseline project defaults
-| `runtime/bun/`    | Bun runtime for development and testing
-| `runtime/pnpm/`   | Node/pnpm runtime for development and testing
-| `linting/biome/`  | Biome linting and formatting
-| `linting/eslint/` | ESLint linting and formatting
-
-### Skills (`skills/`)
-
-Skills orchestrate common workflows on top of the blocks.
-
-| Skill          | Purpose
-| -------------- | ---
-| `npm-scaffold` | Assemble a new package from the default block stack
-| `npm-sync`     | Inspect an existing project and prepare a sync plan against the blocks
+The sync workflow does not rewrite an existing project automatically. It compares the project with the starter and reports what matches, what is missing, and what should be reviewed before changing.
