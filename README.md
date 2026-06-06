@@ -1,11 +1,8 @@
 # npm-package-starter
 
-Starter skill for scaffolding TypeScript npm packages from reusable blocks, or assessing an existing package against the same starter.
+Starter for creating and maintaining TypeScript npm packages from reusable blocks.
 
-The skill has two workflows:
-
-- create a new TypeScript package project
-- review an existing package project and report how it differs from the starter
+It can scaffold a new package, or compare an existing package with the starter and report what should be updated.
 
 ## Install
 
@@ -55,3 +52,33 @@ What the starter configures:
 - Markdown linting and editor defaults.
 
 The sync workflow does not rewrite an existing project automatically. It compares the project with the starter and reports what matches, what is missing, and what should be reviewed before changing.
+
+## Publishing
+
+The starter includes a GitHub Actions release workflow using Changesets.
+
+Before the first release, configure the repository:
+
+```sh
+gh repo view --web
+```
+
+Under **Settings > Secrets and variables > Actions > New repository secret**:
+
+- Add `NPM_TOKEN`.
+
+Under **Settings > Actions > General > Workflow permissions**:
+
+- Choose **Read and write permissions**.
+- Enable **Allow GitHub Actions to create and approve pull requests**.
+
+Push the repository, then open the generated **Version Packages** pull request and merge it.
+
+After the first publish, configure npm trusted publishing for the package:
+
+- Publisher: GitHub Actions
+- Organization or user: `IlyaSemenov`
+- Repository: your package repository
+- Workflow filename: `test-and-release.yml`
+
+Then remove `NPM_TOKEN` from the workflow and from repository secrets.
