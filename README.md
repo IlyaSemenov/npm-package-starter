@@ -80,5 +80,6 @@ After the first publish, configure npm trusted publishing for the package:
 - Organization or user: `IlyaSemenov`
 - Repository: your package repository
 - Workflow filename: `test-and-release.yml`
+- Allowed actions: ☑ Allow `npm publish`
 
 Then remove `NPM_TOKEN` from the workflow and from repository secrets.
