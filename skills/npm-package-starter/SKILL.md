@@ -45,6 +45,8 @@ Treat them as the source of truth.
 - Resolve block paths relative to this `SKILL.md`.
 - Copy full files as-is.
 - When a block ships a fragment for an existing file, merge it into the file with the same path.
+- When merging block fragments, preserve applicable comments from the blocks.
+  Treat those comments as semantic documentation, not formatting noise.
 - Use each block's `BLOCK.md` as local notes for that block.
 - Preserve project-specific customizations when assessing existing projects.
 - Stop if a required block or fragment is missing.
