@@ -51,6 +51,7 @@ What the starter configures:
 - Git hooks managed with `lefthook`.
 - Releases managed with Changesets.
 - Test and release automation through GitHub Actions.
+- CI database service: optional PostgreSQL for tests that need it.
 - Markdown linting and editor defaults.
 
 The sync workflow does not rewrite an existing project automatically. It compares the project with the starter and reports what matches, what is missing, and what should be reviewed before changing.
