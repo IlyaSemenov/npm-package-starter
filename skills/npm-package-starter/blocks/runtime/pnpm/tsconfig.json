@@ -1,3 +1,4 @@
 {
-  "extends": "tsconfig-vite-node"
+  "extends": "tsconfig-vite-node",
+  "include": ["src/**/*.ts", "*.ts"]
 }

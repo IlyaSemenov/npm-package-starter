@@ -4,5 +4,6 @@
     "paths": {
       "package-name": ["../src"]
     }
-  }
+  },
+  "include": ["**/*.ts"]
 }

@@ -2,5 +2,6 @@
   "extends": "@tsconfig/bun/tsconfig.json",
   "compilerOptions": {
     "types": ["bun"]
-  }
+  },
+  "include": ["src/**/*.ts", "*.ts"]
 }
