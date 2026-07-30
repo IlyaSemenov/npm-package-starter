@@ -11,4 +11,5 @@ Copy to the project root:
 Merge into the matching files:
 
 - `.vscode/`
+- `lefthook.yml`
 - `package.json`
