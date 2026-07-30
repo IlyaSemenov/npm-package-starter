@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/package-name.git"
+    "url": "git+https://github.com/OWNER/REPO.git"
   },
   "exports": {
     ".": {
