@@ -43,11 +43,14 @@ The scaffold workflow creates a ready-to-publish TypeScript package with build, 
 What the starter configures:
 
 - Runtime: Bun by default, or Node.js with pnpm.
+- TypeScript 7 type-checking locally and in CI.
 - Linting and formatting: Biome by default, or ESLint.
 - Tool versions managed with `mise`.
 - Git hooks managed with `lefthook`.
 - Releases managed with Changesets.
 - Test and release automation through GitHub Actions.
+- A personalized MIT license.
+- A starting `AGENTS.md`.
 - CI database service: optional PostgreSQL for tests that need it.
 - Markdown linting and editor defaults.
 

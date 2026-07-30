@@ -11,6 +11,9 @@ Copy to the project root:
 - `.gitignore`
 - `.markdownlint.yaml`
 - `.vscode/`
+- `AGENTS.md`
+- `CLAUDE.md`
+- `LICENSE`
 - `bootstrap.md`
 - `lefthook.yml`
 - `mise.toml`
@@ -22,9 +25,10 @@ Copy to the project root:
 
 ## Review
 
-- Replace `package-name` in `README.md`, `bootstrap.md`, `package.json`, `.changeset/initial-release.md`, and `tests/tsconfig.json`.
+- Replace `package-name` in `AGENTS.md`, `README.md`, `bootstrap.md`, `package.json`, `.changeset/initial-release.md`, and `tests/tsconfig.json`.
 - Replace `OWNER` and `REPO` in `package.json` only when the GitHub repository is known from a reliable source.
-- Fill in `description` and `author`.
+- Replace `YEAR` and `author` in `LICENSE`.
+- Fill in `description` and `author`, including the placeholders in `AGENTS.md`.
 - Customize every identity, repository, visibility, token-scope, and command placeholder in `bootstrap.md` for the project and user.
 - Keep `/bootstrap.md` in `.gitignore`; the generated checklist removes this rule during its final cleanup.
 

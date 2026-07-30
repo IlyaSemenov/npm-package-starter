@@ -1,4 +1,4 @@
-# default first-line-heading is too strict for small instruction files like CLAUDE.md
+# default first-line-heading is too strict for small instruction files like AGENTS.md
 first-line-heading: false
 
 # default line-length is too strict for 'one sentence per line' formatting

@@ -16,10 +16,11 @@ Use the package name from the user request; if it is missing and cannot be deriv
 3. Apply the blocks in order, copying full files and merging same-path fragments.
 4. Resolve project and user metadata from explicit user input or reliable authenticated sources:
    - package name, author, and description
+   - current year for the license notice
    - npm username
    - GitHub `OWNER/REPO`
    - repository visibility
-5. Replace the `package-name`, `author`, `description`, `NPM_USER`, `OWNER`, `REPO`, and `REPOSITORY_VISIBILITY` placeholders.
+5. Replace the `package-name`, `author`, `description`, `YEAR`, `NPM_USER`, `OWNER`, `REPO`, and `REPOSITORY_VISIBILITY` placeholders.
 6. Resolve publish-critical metadata:
    - If the repository owner can be derived from a reliable source, replace `OWNER`.
    - Otherwise ask the user before filling `repository.url` or any other publish-critical field.
@@ -33,7 +34,7 @@ Use the package name from the user request; if it is missing and cannot be deriv
 9. Run `mise install`.
 10. Run `bun install`.
 11. Run `mise lock`.
-12. Verify `bun test`, `bun run lint`, and `bun run build`.
+12. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`.
 
 ## Report
 
@@ -44,7 +45,7 @@ Always tell the user:
 - which placeholders or publish-critical fields still need review
 - whether `bootstrap.md` was fully customized and remains ignored by Git
 - that all remaining repository and npm setup continues from `bootstrap.md`
-- whether `mise trust`, `mise install`, `bun install`, `mise lock`, test, lint, and build passed
+- whether `mise trust`, `mise install`, `bun install`, `mise lock`, test, types, lint, and build passed
 
 ## Constraints
 

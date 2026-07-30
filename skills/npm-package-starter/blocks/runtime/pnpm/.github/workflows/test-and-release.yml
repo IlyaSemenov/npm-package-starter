@@ -7,5 +7,8 @@ jobs:
       - name: Build package
         run: pnpm run build
 
+      - name: Typecheck package
+        run: pnpm run types
+
       - name: Test package
         run: pnpm run test

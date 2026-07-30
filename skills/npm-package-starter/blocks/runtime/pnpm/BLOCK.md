@@ -16,6 +16,10 @@ Merge into the matching files:
 - `mise.toml`
 - `package.json`
 
+## Review
+
+- Replace `package-name` in `vite.config.ts`.
+
 ## Notes
 
 - Insert the workflow fragment after `Setup mise` in the base workflow.

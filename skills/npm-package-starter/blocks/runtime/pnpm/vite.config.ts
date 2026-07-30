@@ -1,6 +1,11 @@
-import tsconfigPaths from "vite-tsconfig-paths"
+import { fileURLToPath } from "node:url"
+
 import { defineConfig } from "vitest/config"
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: {
+      "package-name": fileURLToPath(new URL("./src/index.ts", import.meta.url)),
+    },
+  },
 })

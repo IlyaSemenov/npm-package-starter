@@ -9,11 +9,14 @@
     "type": "git",
     "url": "git+https://github.com/OWNER/REPO.git"
   },
+  "homepage": "https://github.com/OWNER/REPO#readme",
+  "bugs": "https://github.com/OWNER/REPO/issues",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -22,16 +25,20 @@
     "README.md",
     "dist"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "tsdown",
     "prepare": "lefthook install",
     "types": "tsc && tsc -p tests/tsconfig.json"
   },
   "devDependencies": {
-    "@arethetypeswrong/core": "^0.18.2",
-    "@changesets/cli": "^2.29.7",
-    "publint": "^0.3.18",
-    "tsdown": "^0.20.3",
+    "@arethetypeswrong/core": "^0.18.5",
+    "@changesets/cli": "^2.31.1",
+    "publint": "^0.3.22",
+    "tsdown": "^0.22.14",
     "typescript": "^7.0.2"
   }
 }
