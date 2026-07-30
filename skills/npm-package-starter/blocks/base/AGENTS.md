@@ -6,6 +6,8 @@ description
 
 Read [README.md](README.md) completely before changing the public API, package behavior, supported runtimes, or user documentation.
 
+Extend this guide with the package's source map, architecture, contracts, and test map as those conventions become stable.
+
 ## Scope
 
 - Keep production code in `src/`.
@@ -46,5 +48,3 @@ Describe the user-visible change.
 - Run the `types` script when public types or TypeScript configuration change.
 - Run the `test` script when behavior changes.
 - Run the `build` script when package exports, declarations, or supported runtimes change.
-
-Extend this guide with the package's source map, architecture, contracts, and test map as those conventions become stable.
