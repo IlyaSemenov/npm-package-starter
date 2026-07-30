@@ -1,21 +1,22 @@
 ---
 name: npm-package-starter
 description: Create a new TypeScript npm package project, or assess an existing npm package project for alignment with this starter.
-argument-hint: <create|scaffold|update|sync> [package-name]
 ---
 
 # npm-package-starter
 
 Use this skill for npm package starter work.
-The first argument should choose the workflow.
+The skill has exactly two workflows: `scaffold` and `sync`.
 
 ## Contract
 
-- `create` or `scaffold`: create a new TypeScript npm package project.
+- `scaffold`: create a new TypeScript npm package project.
   Read [scaffold.md](scaffold.md).
-- `update` or `sync`: assess an existing npm package project and prepare a sync plan.
+- `sync`: assess an existing npm package project and prepare a sync plan.
   Read [sync.md](sync.md).
-- If the first argument is missing or ambiguous, stop and ask the user to choose one of those workflows.
+- If the user names a workflow, use it.
+- If the user does not name a workflow, use `scaffold` when creating a new project and `sync` when working with an existing project.
+- If the task intent does not distinguish the workflows, stop and ask the user to choose `scaffold` or `sync`.
   Do not infer the workflow from a package name or directory name.
 
 ## Blocks

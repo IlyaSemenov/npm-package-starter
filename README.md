@@ -12,10 +12,10 @@ npx skills add -g https://github.com/IlyaSemenov/npm-package-starter
 
 ## Usage
 
-Use the first argument to select the workflow:
+The starter has two workflows:
 
-- `create` or `scaffold`: create a new TypeScript npm package project
-- `update` or `sync`: inspect an existing project and prepare a sync plan
+- `scaffold`: create a new TypeScript npm package project
+- `sync`: inspect an existing project and prepare a sync plan
 
 To create a project, start from an empty directory:
 
@@ -33,7 +33,7 @@ $npm-package-starter scaffold mylib
 For an existing project:
 
 ```text
-$npm-package-starter update
+$npm-package-starter sync
 ```
 
 ## What It Builds
