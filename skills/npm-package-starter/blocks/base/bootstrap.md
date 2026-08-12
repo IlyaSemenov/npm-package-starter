@@ -126,20 +126,7 @@ Delete the temporary secret from GitHub.
 gh secret delete NPM_TOKEN --repo OWNER/REPO
 ```
 
-Find the token named `REPO-bootstrap` and revoke it.
-
-```sh
-NPM_BOOTSTRAP_TOKEN_ID="$(
-  npm token list --json |
-    node -pe '
-      JSON.parse(require("node:fs").readFileSync(0, "utf8"))
-        .find(({ name }) => name === "REPO-bootstrap")?.key ?? ""
-    '
-)"
-test -n "$NPM_BOOTSTRAP_TOKEN_ID" &&
-  npm token revoke "$NPM_BOOTSTRAP_TOKEN_ID"
-unset NPM_BOOTSTRAP_TOKEN_ID
-```
+On the npm website, open the profile menu, select Access Tokens, and delete the token named `REPO-bootstrap`.
 
 Remove the bootstrap comment and `NPM_TOKEN` fallback from the workflow while preserving the blank line after `GITHUB_TOKEN`.
 Remove the temporary `.gitignore` rule at the same time.
