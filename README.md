@@ -42,6 +42,7 @@ The scaffold workflow creates a ready-to-publish TypeScript package with build, 
 
 What the starter configures:
 
+- Module format: ESM only by default, or dual CJS and ESM output.
 - Runtime: Bun by default, or Node.js with pnpm.
 - TypeScript 7 type-checking locally and in CI.
 - Linting and formatting: Biome by default, or ESLint.

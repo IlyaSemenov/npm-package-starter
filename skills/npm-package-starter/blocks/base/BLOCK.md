@@ -34,6 +34,8 @@ Copy to the project root:
 
 ## Notes
 
+- The base package builds and publishes ESM only.
+- Apply the `cjs` block when consumers also require CommonJS output.
 - `repository.url` is publish-critical metadata. If `OWNER/REPO` cannot be derived reliably, ask instead of guessing.
 - `bootstrap.md` is created only by the scaffold workflow and must never be committed to the generated project.
 - Use `--packages-all` for the temporary npm token when creating an unscoped package.

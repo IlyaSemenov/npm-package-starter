@@ -12,15 +12,10 @@
   "homepage": "https://github.com/OWNER/REPO#readme",
   "bugs": "https://github.com/OWNER/REPO/issues",
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts",
+  "types": "./dist/index.d.mts",
   "files": [
     "README.md",
     "dist"
