@@ -6,7 +6,8 @@ description
 
 Read [README.md](README.md) completely before changing the public API, package behavior, supported runtimes, or user documentation.
 
-Extend this guide with the package's source map, architecture, contracts, and test map as those conventions become stable.
+Extend this guide only with stable, non-obvious conventions, architecture, contracts, workflows, and gotchas.
+Do not catalog files or restate information evident from their names and locations.
 
 ## Scope
 
