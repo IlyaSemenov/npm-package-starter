@@ -38,8 +38,6 @@ Copy to the project root:
 - Apply the `cjs` block when consumers also require CommonJS output.
 - `repository.url` is publish-critical metadata. If `OWNER/REPO` cannot be derived reliably, ask instead of guessing.
 - `bootstrap.md` is created only by the scaffold workflow and must never be committed to the generated project.
-- Use `--packages-all` for the temporary npm token when creating an unscoped package.
-- For a scoped package, replace it with the narrowest applicable `--scopes` argument.
 - If the GitHub repository or remote already exists, replace the repository-creation command with commands matching the actual state.
 - Tool installation and lockfile generation happen after the full block stack is assembled.
 - Other blocks may extend files from this block by merging same-path fragments or by adding more files alongside the base ones.

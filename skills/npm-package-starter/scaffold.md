@@ -31,7 +31,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
    - Leave no unresolved or example placeholders.
    - Keep the file excluded by the generated `.gitignore`.
    - Verify that `git check-ignore bootstrap.md` succeeds.
-   - Use the narrowest temporary npm token scope that can create the new package.
+   - Preserve the npm website token flow from the template and customize its package scope for the project.
    - Preserve the blank line and bootstrap comment before `NPM_TOKEN` in `.github/workflows/test-and-release.yml`.
 8. Run `mise trust`.
 9. Run `mise install`.

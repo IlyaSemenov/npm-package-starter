@@ -50,24 +50,24 @@ gh api --method PUT repos/OWNER/REPO/actions/permissions/workflow \
 ## 4. Create the temporary npm publishing token
 
 The package does not exist yet, so Trusted Publishing cannot be configured before the first release.
-This bootstrap token can publish packages, but expires after one day and is removed after the first release.
-The command passes it directly from npm to GitHub without writing it to disk or shell history.
+This bootstrap token can publish packages and is removed after the first release.
+
+On the npm website, open the profile menu, select Access Tokens, and generate a new granular access token with these settings:
+
+- Token name: `REPO-bootstrap`
+- Expiration: 7 days, the minimum offered by the npm website
+- Bypass two-factor authentication: enabled
+- Packages and scopes permission: Read and write
+- Package access: All Packages
+- Organizations permission: No access
+
+Copy the token, then run the command and paste it at the interactive prompt without storing it in a shell variable, command substitution, or file.
 
 ```sh
-NPM_BOOTSTRAP_TOKEN="$(
-  npm token create \
-    --name REPO-bootstrap \
-    --expires 1 \
-    --packages-all \
-    --packages-and-scopes-permission read-write \
-    --bypass-2fa \
-    --json |
-    node -pe 'JSON.parse(require("node:fs").readFileSync(0, "utf8")).token'
-)" &&
-  print -rn -- "$NPM_BOOTSTRAP_TOKEN" |
-  gh secret set NPM_TOKEN --repo OWNER/REPO
-unset NPM_BOOTSTRAP_TOKEN
+gh secret set NPM_TOKEN --repo OWNER/REPO
 ```
+
+Clear the token from the clipboard after the command succeeds.
 
 ## 5. Push and merge the version pull request
 
