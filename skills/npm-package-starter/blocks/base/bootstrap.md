@@ -42,6 +42,11 @@ gh repo create OWNER/REPO \
   --source=. \
   --remote=origin
 
+gh repo edit OWNER/REPO \
+  --description "description" \
+  --homepage "https://www.npmjs.com/package/package-name" \
+  --add-topic REPOSITORY_TOPICS
+
 gh api --method PUT repos/OWNER/REPO/actions/permissions/workflow \
   -f default_workflow_permissions=write \
   -F can_approve_pull_request_reviews=true

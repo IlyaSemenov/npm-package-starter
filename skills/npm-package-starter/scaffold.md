@@ -23,7 +23,8 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
    - npm username
    - GitHub `OWNER/REPO`
    - repository visibility
-5. Replace the `package-name`, `author`, `description`, `YEAR`, `NPM_USER`, `OWNER`, `REPO`, and `REPOSITORY_VISIBILITY` placeholders.
+   - repository topics
+5. Replace the `package-name`, `author`, `description`, `YEAR`, `NPM_USER`, `OWNER`, `REPO`, `REPOSITORY_VISIBILITY`, and `REPOSITORY_TOPICS` placeholders.
 6. Resolve publish-critical metadata:
    - If the repository owner can be derived from a reliable source, replace `OWNER`.
    - Otherwise ask the user before filling `repository.url` or any other publish-critical field.

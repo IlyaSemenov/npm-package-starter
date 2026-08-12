@@ -28,7 +28,8 @@ Copy to the project root:
 - Replace `package-name` in `AGENTS.md`, `README.md`, `bootstrap.md`, `package.json`, `.changeset/initial-release.md`, and `tests/tsconfig.json`.
 - Replace `OWNER` and `REPO` in `package.json` only when the GitHub repository is known from a reliable source.
 - Replace `YEAR` and `author` in `LICENSE`.
-- Fill in `description` and `author`, including the placeholders in `AGENTS.md`.
+- Fill in `description` and `author`, including the `description` placeholders in `AGENTS.md` and `bootstrap.md` and the `author` placeholder in `bootstrap.md`.
+- Replace `REPOSITORY_TOPICS` in `bootstrap.md` with a comma-separated list of topics selected for the package.
 - Customize every identity, repository, visibility, token-scope, and command placeholder in `bootstrap.md` for the project and user.
 - Keep `/bootstrap.md` in `.gitignore`; the generated checklist removes this rule during its final cleanup.
 
