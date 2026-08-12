@@ -108,6 +108,7 @@ Do not continue until both commands succeed.
 ## 6. Enable Trusted Publishing
 
 The package now exists, so replace the temporary token with npm Trusted Publishing.
+The `npm trust github` command is interactive and cannot run unattended: confirm the terminal prompt and complete browser-based two-factor authentication.
 
 ```sh
 npm trust github package-name \
