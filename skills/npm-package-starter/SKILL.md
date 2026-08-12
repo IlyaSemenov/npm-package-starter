@@ -5,8 +5,7 @@ description: Create a new TypeScript npm package project, or assess an existing 
 
 # npm-package-starter
 
-Use this skill for npm package starter work.
-The skill has exactly two workflows: `scaffold` and `sync`.
+This skill, its workflow documents, and its block notes instruct an agent to scaffold or assess a target project through exactly two workflows: `scaffold` and `sync`.
 
 ## Contract
 
@@ -49,6 +48,6 @@ Treat them as the source of truth.
 - When a block ships a fragment for an existing file, merge it into the file with the same path.
 - When merging block fragments, preserve applicable comments from the blocks.
   Treat those comments as semantic documentation, not formatting noise.
-- Use each block's `BLOCK.md` as local notes for that block.
+- Use each block's `BLOCK.md` only as application notes for that block, and never copy it into the target project.
 - Preserve project-specific customizations when assessing existing projects.
 - Stop if a required block or fragment is missing.
