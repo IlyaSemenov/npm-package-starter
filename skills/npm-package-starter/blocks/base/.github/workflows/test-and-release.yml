@@ -32,13 +32,16 @@ jobs:
 
       # Runtime blocks insert setup/install/build/typecheck/test steps here.
 
-      - name: Capture new release versions
+      - name: Capture release version
         if: ${{ github.ref == env.MAIN_REF }}
         run: |
-          if npx @changesets/cli status --output=release.json; then
-            echo "RELEASE=Version $(jq -r '.releases[0].newVersion' release.json)" >> "$GITHUB_ENV"
-            rm release.json
+          npx @changesets/cli status --output=release.json
+          RELEASE_VERSION="$(jq -r '.releases[0].newVersion // empty' release.json)"
+          if [ -z "$RELEASE_VERSION" ]; then
+            RELEASE_VERSION="$(jq -r '.version' package.json)"
           fi
+          echo "RELEASE=Version $RELEASE_VERSION" >> "$GITHUB_ENV"
+          rm release.json
 
       - name: Create Release Pull Request or Publish to npm
         if: ${{ github.ref == env.MAIN_REF }}
