@@ -67,6 +67,9 @@ Copy the token, then run the command and paste it at the interactive prompt with
 gh secret set NPM_TOKEN --repo OWNER/REPO
 ```
 
+If an agent is driving the terminal and cannot accept the token without recording its input, use a mode-`600` FIFO between a separate trusted terminal and the command's standard input.
+Never pass the token through chat, a command argument, or tool input.
+
 Clear the token from the clipboard after the command succeeds.
 
 ## 5. Push and merge the version pull request
