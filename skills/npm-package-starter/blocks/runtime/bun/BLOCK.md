@@ -17,6 +17,7 @@ Merge into the matching files:
 
 ## Notes
 
+- In `package.json`, insert `packageManager` immediately after `version` instead of appending it after the existing fields.
 - Insert the workflow fragment after `Setup mise` in the base workflow.
 - The workflow fragment keeps Node available for release tooling while Bun remains the main runtime.
 - Do not rewrite the base workflow's release or publish steps for Bun.
