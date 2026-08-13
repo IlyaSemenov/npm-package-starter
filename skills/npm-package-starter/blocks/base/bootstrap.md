@@ -57,25 +57,28 @@ gh api --method PUT repos/OWNER/REPO/actions/permissions/workflow \
 The package does not exist yet, so Trusted Publishing cannot be configured before the first release.
 This bootstrap token can publish packages and is removed after the first release.
 
-On the npm website, open the profile menu, select Access Tokens, and generate a new granular access token with these settings:
+Run the command below.
+The command first asks for the account password in the terminal, then asks to open a browser for two-factor authentication.
+After authentication succeeds, the command prints the full token.
 
-- Token name: `REPO-bootstrap`
-- Expiration: 7 days, the minimum offered by the npm website
-- Bypass two-factor authentication: enabled
-- Packages and scopes permission: Read and write
-- Package access: All Packages
-- Organizations permission: No access
+```sh
+npm token create \
+  --name=REPO-bootstrap \
+  --expires=7 \
+  --bypass-2fa \
+  --packages='*' \
+  --packages-and-scopes-permission=read-write \
+  --orgs-permission=no-access
+```
 
-Copy the token, then run the command and paste it at the interactive prompt without storing it in a shell variable, command substitution, or file.
+Copy the printed token, then run the command below and paste it at the prompt.
 
 ```sh
 gh secret set NPM_TOKEN --repo OWNER/REPO
 ```
 
-If an agent is driving the terminal and cannot accept the token without recording its input, use a mode-`600` FIFO between a separate trusted terminal and the command's standard input.
-Never pass the token through chat, a command argument, or tool input.
-
-Clear the token from the clipboard after the command succeeds.
+Do not pass the token through chat, a command argument, or a file.
+Clear the token from the clipboard after the secret is set.
 
 ## 5. Push and merge the version pull request
 
@@ -113,7 +116,7 @@ Do not continue until both commands succeed.
 ## 6. Enable Trusted Publishing
 
 The package now exists, so replace the temporary token with npm Trusted Publishing.
-The `npm trust github` command is interactive and cannot run unattended: confirm the terminal prompt and complete browser-based two-factor authentication.
+Run the command below, confirm the operation when prompted, and complete browser-based two-factor authentication.
 
 ```sh
 npm trust github package-name \
