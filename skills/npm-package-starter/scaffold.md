@@ -17,29 +17,32 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
 1. Confirm the target directory. Default: current working directory.
 2. If the target directory is not a git repository yet, run `git init .`.
 3. Apply the blocks in order, copying full files and merging same-path fragments.
-4. Resolve project and user metadata from explicit user input or reliable authenticated sources:
+4. Normalize merged configuration files after the complete selected block stack is assembled:
+   - In `.vscode/*.json`, merge arrays without duplicates, sort string arrays alphabetically, and recursively sort object keys alphabetically.
+   - In `mise.toml`, order tables as `[settings]`, its subtables, and then `[tools]`, and sort keys alphabetically within each table.
+5. Resolve project and user metadata from explicit user input or reliable authenticated sources:
    - package name, author, and description
    - current year for the license notice
    - npm username
    - GitHub `OWNER/REPO`
    - repository visibility
    - repository topics
-5. Replace the `package-name`, `author`, `description`, `YEAR`, `NPM_USER`, `OWNER`, `REPO`, `REPOSITORY_VISIBILITY`, and `REPOSITORY_TOPICS` placeholders.
-6. Resolve publish-critical metadata:
+6. Replace the `package-name`, `author`, `description`, `YEAR`, `NPM_USER`, `OWNER`, `REPO`, `REPOSITORY_VISIBILITY`, and `REPOSITORY_TOPICS` placeholders.
+7. Resolve publish-critical metadata:
    - If the repository owner can be derived from a reliable source, replace `OWNER`.
    - Otherwise ask the user before filling `repository.url` or any other publish-critical field.
-7. Customize `bootstrap.md` for the resolved project, user, runtime, repository state, and repository visibility.
+8. Customize `bootstrap.md` for the resolved project, user, runtime, repository state, and repository visibility.
    - Leave no unresolved or example placeholders.
    - Keep the file excluded by the generated `.gitignore`.
    - Verify that `git check-ignore bootstrap.md` succeeds.
    - Preserve the npm CLI token flow from the template.
    - Run token creation during bootstrap, pausing for the npm password and browser-based two-factor authentication, then upload the printed token through the interactive GitHub secret prompt.
    - Preserve the blank line and bootstrap comment before `NPM_TOKEN` in `.github/workflows/test-and-release.yml`.
-8. Run `mise trust`.
-9. Run `mise install`.
-10. Run `bun install`.
-11. Run `mise lock`.
-12. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`.
+9. Run `mise trust`.
+10. Run `mise install`.
+11. Run `bun install`.
+12. Run `mise lock`.
+13. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`.
 
 ## Report
 
