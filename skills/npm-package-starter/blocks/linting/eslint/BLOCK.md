@@ -15,4 +15,4 @@ Merge into the matching files:
 - `package.json`
 
 Merge this block's TypeScript dependencies after the base block.
-Keep `@typescript/native` as the `tsc` provider and `typescript@6.0.3` as the JavaScript API used by `typescript-eslint`.
+Keep `@typescript/native` as the `tsc` provider and `typescript@~6.0.3` as the JavaScript API used by `typescript-eslint`.
