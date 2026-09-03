@@ -20,6 +20,10 @@ Do not catalog files or restate information evident from their names and locatio
 ## Documentation
 
 - Write public README and JSDoc text for package users who do not know the implementation.
+- Add JSDoc to every exported declaration and to internal helpers whose contract, inputs, output, or failure behavior is not obvious.
+- Add inline comments beside every non-obvious invariant, algorithmic choice, safety constraint, and intentionally limited behavior.
+- Update nearby JSDoc and inline comments whenever the documented code changes, and remove comments that no longer apply.
+- Do not narrate self-evident syntax or restate what a name already communicates.
 - Do not document obvious or implied defaults.
 - Describe a default only when readers need it to make a decision or avoid surprising behavior.
 - Use One Sentence Per Line for connected prose.
