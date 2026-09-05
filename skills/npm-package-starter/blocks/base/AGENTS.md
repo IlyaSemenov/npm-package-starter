@@ -48,6 +48,15 @@ Describe the user-visible change.
 - Write one or two sentences for package users that describe the observable change or new capability without implementation details or rationale.
 - Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the release workflow consumes pending changesets.
 
+## Tests
+
+- Add a `describe` block where the file gives a reason for it: several APIs or behaviors in one file, or a fixture that belongs to some cases but not all.
+  Name such a block after what it covers and keep its fixtures inside it.
+- Distinguish several same-kind values by role rather than by order.
+  When values differ only by order, number them with digits instead of ordinal words.
+- Keep tests deterministic so a failure repeats on every run.
+  Generate random inputs from an explicit seed and print the seed in failure messages so the failing input can be replayed.
+
 ## Checks
 
 - Run the `types` script when public types or TypeScript configuration change.
