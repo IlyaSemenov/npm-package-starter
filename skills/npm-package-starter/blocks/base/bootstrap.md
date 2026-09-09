@@ -2,7 +2,7 @@
 
 This is a local, one-time checklist for publishing `package-name`.
 Do not commit this file.
-It is excluded by `.gitignore` until the final cleanup.
+It is excluded by `.git/info/exclude` until the final cleanup.
 
 - Author: author
 - npm account: `NPM_USER`
@@ -138,7 +138,6 @@ gh secret delete NPM_TOKEN --repo OWNER/REPO
 On the npm website, open the profile menu, select Access Tokens, and delete the token named `REPO-bootstrap`.
 
 Remove the bootstrap comment and `NPM_TOKEN` fallback from the workflow while preserving the blank line after `GITHUB_TOKEN`.
-Remove the temporary `.gitignore` rule at the same time.
 
 ```sh
 git pull --ff-only
@@ -149,16 +148,16 @@ sed -i.bak \
   .github/workflows/test-and-release.yml
 rm .github/workflows/test-and-release.yml.bak
 
-sed -i.bak -e '/^\/bootstrap\.md$/d' .gitignore
-rm .gitignore.bak
-
-git add .github/workflows/test-and-release.yml .gitignore
+git add .github/workflows/test-and-release.yml
 git commit -m "Use npm trusted publishing"
 git push
 ```
 
-Finally, delete this local checklist.
+Finally, delete this local checklist and its exclude rule.
 
 ```sh
+sed -i.bak -e '/^\/bootstrap\.md$/d' .git/info/exclude
+rm .git/info/exclude.bak
+
 rm bootstrap.md
 ```

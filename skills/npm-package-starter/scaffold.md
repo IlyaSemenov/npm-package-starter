@@ -33,7 +33,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
    - Otherwise ask the user before filling `repository.url` or any other publish-critical field.
 8. Customize `bootstrap.md` for the resolved project, user, runtime, repository state, and repository visibility.
    - Leave no unresolved or example placeholders.
-   - Keep the file excluded by the generated `.gitignore`.
+   - Keep the file excluded by `.git/info/exclude`.
    - Verify that `git check-ignore bootstrap.md` succeeds.
    - Preserve the npm CLI token flow from the template.
    - Run token creation during bootstrap, pausing for the npm password and browser-based two-factor authentication, then upload the printed token through the interactive GitHub secret prompt.

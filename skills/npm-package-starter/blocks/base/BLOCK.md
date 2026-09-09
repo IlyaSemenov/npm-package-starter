@@ -31,7 +31,7 @@ Copy to the project root:
 - Fill in `description` and `author`, including the `description` placeholders in `AGENTS.md` and `bootstrap.md` and the `author` placeholder in `bootstrap.md`.
 - Replace `REPOSITORY_TOPICS` in `bootstrap.md` with a comma-separated list of topics selected for the package.
 - Customize every identity, repository, visibility, token-scope, and command placeholder in `bootstrap.md` for the project and user.
-- Keep `/bootstrap.md` in `.gitignore`; the generated checklist removes this rule during its final cleanup.
+- Add `/bootstrap.md` to `.git/info/exclude`, never to the committed `.gitignore`; the generated checklist removes this rule during its final cleanup.
 
 ## Notes
 
