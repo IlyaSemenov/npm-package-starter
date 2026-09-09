@@ -12,7 +12,7 @@ Do not catalog files or restate information evident from their names and locatio
 ## Scope
 
 - Keep production code in `src/`.
-- Use `src/*.test.ts` only for focused tests of one source module.
+- Keep focused module tests beside their source as `*.test.ts`.
 - Keep integration, package-boundary, and type-inference tests in `tests/`.
 - Keep `src/index.ts` limited to explicit public exports.
 - Treat `package.json` exports and supported runtimes as public contracts.
