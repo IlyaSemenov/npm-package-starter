@@ -46,7 +46,8 @@ Do not catalog files or restate information evident from their names and locatio
 Describe the user-visible change.
 ```
 
-- Write one or two sentences for package users that describe the observable change or new capability without implementation details or rationale.
+- Briefly describe the user-observable change or new capability in the public contract, without implementation details or rationale.
+  Prefer a single sentence.
 - Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the release workflow consumes pending changesets.
 
 ## Tests
