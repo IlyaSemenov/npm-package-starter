@@ -7,7 +7,7 @@ Use the package name from the user request; if it is missing and cannot be deriv
 
 1. `blocks/base/`
 2. `blocks/runtime/bun/`
-3. `blocks/linting/biome/`
+3. `blocks/linting/oxc/`
 
 The default build publishes ESM only.
 Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also publish CommonJS output.

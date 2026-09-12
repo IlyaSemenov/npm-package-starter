@@ -45,7 +45,7 @@ What the starter configures:
 - Module format: ESM only by default, or dual CJS and ESM output.
 - Runtime: Bun by default, or Node.js with pnpm.
 - TypeScript 7 type-checking locally and in CI.
-- Linting and formatting: Biome by default, or ESLint.
+- Linting and formatting: OXC by default, or Biome and ESLint.
 - Tool versions managed with `mise`.
 - Git hooks managed with `lefthook`.
 - Releases managed with Changesets.
