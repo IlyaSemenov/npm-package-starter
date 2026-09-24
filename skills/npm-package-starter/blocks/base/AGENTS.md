@@ -35,7 +35,8 @@ Do not catalog files or restate information evident from their names and locatio
 
 - Add one `.changeset/*.md` file for each independently releasable user-visible change.
 - Do not add changesets for internal refactors, maintenance, tests, or documentation changes that do not require a package release.
-- Choose the SemVer bump from the public contract: `patch` for backward-compatible fixes, `minor` for backward-compatible functionality, and `major` for breaking changes.
+- Choose the SemVer bump from the public contract: `patch` for backward-compatible fixes and `minor` for backward-compatible functionality.
+- Before 1.0, use `minor` for breaking changes; starting with 1.0, use `major` and remove this rule.
 - Create `.changeset/<unique-name>.md` with this format:
 
 ```markdown
