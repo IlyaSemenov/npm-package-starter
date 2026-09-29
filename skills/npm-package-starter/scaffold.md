@@ -37,7 +37,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
    - Verify that `git check-ignore bootstrap.md` succeeds.
    - Preserve the npm CLI token flow from the template.
    - Run token creation during bootstrap, pausing for the npm password and browser-based two-factor authentication, then upload the printed token through the interactive GitHub secret prompt.
-   - Preserve the blank line and bootstrap comment before `NPM_TOKEN` in `.github/workflows/test-and-release.yml`.
+   - Preserve the bootstrap-only `NODE_AUTH_TOKEN` environment block in `.github/workflows/test-and-release.yml` until Trusted Publishing is configured.
 9. Run `mise trust`.
 10. Run `mise install`.
 11. Run `bun install`.

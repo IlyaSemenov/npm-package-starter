@@ -1,6 +1,13 @@
 jobs:
   test-and-release:
     steps:
+      - name: Setup npm authentication
+        uses: actions/setup-node@v6
+        with:
+          # Node is already provided by mise.
+          # Creates .npmrc to use NODE_AUTH_TOKEN for the first publish.
+          registry-url: https://registry.npmjs.org
+
       - name: Install deps
         run: pnpm install --frozen-lockfile
 

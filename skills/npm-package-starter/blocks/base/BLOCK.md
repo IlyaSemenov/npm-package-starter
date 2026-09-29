@@ -42,3 +42,15 @@ Copy to the project root:
 - If the GitHub repository or remote already exists, replace the repository-creation command with commands matching the actual state.
 - Tool installation and lockfile generation happen after the full block stack is assembled.
 - Other blocks may extend files from this block by merging same-path fragments or by adding more files alongside the base ones.
+
+## Monorepo release titles
+
+For a monorepo, replace the `run` body of `Capture release version` in `.github/workflows/test-and-release.yml` with:
+
+```sh
+npx @changesets/cli status --output=release.json
+echo "RELEASE=Release $(jq -r '.releases | map(.name + "@" + .newVersion) | join(", ")' release.json)" >> "$GITHUB_ENV"
+rm release.json
+```
+
+In `bootstrap.md`, replace `--search '"Version " in:title'` with `--head changeset-release/main` when looking up the release PR.

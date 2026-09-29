@@ -104,14 +104,17 @@ test -n "$VERSION_PR" &&
 unset VERSION_PR
 ```
 
-Wait for the release workflow and confirm that the package now exists on npm.
+Wait for the release workflow and confirm that the npm version and its GitHub Release both exist.
 
 ```sh
 gh run watch --exit-status
-npm view package-name version
+RELEASE_VERSION="$(npm view package-name version)"
+test -n "$RELEASE_VERSION" &&
+  gh release view "v$RELEASE_VERSION" --repo OWNER/REPO
+unset RELEASE_VERSION
 ```
 
-Do not continue until both commands succeed.
+Do not continue until the workflow succeeds and both the npm version and its GitHub Release are confirmed.
 
 ## 6. Enable Trusted Publishing
 
@@ -137,14 +140,13 @@ gh secret delete NPM_TOKEN --repo OWNER/REPO
 
 On the npm website, open the profile menu, select Access Tokens, and delete the token named `REPO-bootstrap`.
 
-Remove the bootstrap comment and `NPM_TOKEN` fallback from the workflow while preserving the blank line after `GITHUB_TOKEN`.
+Remove the bootstrap comment and the `NODE_AUTH_TOKEN` environment block from the workflow.
 
 ```sh
 git pull --ff-only
 
 sed -i.bak \
-  -e '/# Bootstrap only\. Remove after configuring Trusted Publishing\./d' \
-  -e '/NPM_TOKEN:.*secrets\.NPM_TOKEN/d' \
+  -e '/# Bootstrap only\. Remove after configuring Trusted Publishing\./,/NODE_AUTH_TOKEN:.*secrets\.NPM_TOKEN/d' \
   .github/workflows/test-and-release.yml
 rm .github/workflows/test-and-release.yml.bak
 
