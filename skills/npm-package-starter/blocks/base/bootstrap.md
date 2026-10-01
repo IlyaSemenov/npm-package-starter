@@ -140,16 +140,15 @@ gh secret delete NPM_TOKEN --repo OWNER/REPO
 
 On the npm website, open the profile menu, select Access Tokens, and delete the token named `REPO-bootstrap`.
 
-Remove the bootstrap comment and the `NODE_AUTH_TOKEN` environment block from the workflow.
+Pull the merged release commits.
 
 ```sh
 git pull --ff-only
+```
 
-sed -i.bak \
-  -e '/# Bootstrap only\. Remove after configuring Trusted Publishing\./,/NODE_AUTH_TOKEN:.*secrets\.NPM_TOKEN/d' \
-  .github/workflows/test-and-release.yml
-rm .github/workflows/test-and-release.yml.bak
+In `.github/workflows/test-and-release.yml`, remove the `# Bootstrap only` comment, the `env` block with `NODE_AUTH_TOKEN` below it, and the blank line before the comment.
 
+```sh
 git add .github/workflows/test-and-release.yml
 git commit -m "Use npm trusted publishing"
 git push
