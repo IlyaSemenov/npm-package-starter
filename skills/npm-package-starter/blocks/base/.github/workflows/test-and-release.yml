@@ -51,6 +51,6 @@ jobs:
           pr-title: ${{ env.RELEASE }}
           commit-message: ${{ env.RELEASE }}
 
-        # Bootstrap only. Remove after configuring Trusted Publishing.
+        # Bootstrap only. Remove after confirming the initial npm publication.
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -59,5 +59,17 @@ The sync workflow does not rewrite an existing project automatically. It compare
 
 ## Bootstrap
 
-After scaffolding, continue with the generated `bootstrap.md` in the new project root.
-It contains project-specific CLI commands for creating and configuring the GitHub repository, making the first npm release, enabling Trusted Publishing, and removing the temporary bootstrap credentials.
+After scaffolding, the generated `bootstrap.md` in the project root sets up publishing in two phases.
+
+1. Initial publication, right after scaffolding: create the GitHub repository, publish the first version with a temporary npm token, then delete the token.
+2. First update, whenever it is ready: configure npm Trusted Publishing (OIDC) and publish the update with it.
+
+Trusted Publishing is configured only right before the first update because a new configuration expires unless it publishes within two days.
+Until then, the release workflow has no npm credentials, and merging a Version pull request fails to publish.
+
+Keep `bootstrap.md` after the initial publication.
+When the Version pull request for the first update is open, ask an agent in the project directory:
+
+```text
+Publish the first update following phase 2 of bootstrap.md.
+```
