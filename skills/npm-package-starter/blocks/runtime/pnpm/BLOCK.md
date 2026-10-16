@@ -20,6 +20,12 @@ Merge into the matching files:
 
 - Replace `package-name` in `vite.config.ts`.
 
+## Dependency updates
+
+- After `pnpm install`, run `pnpm update` without `--latest` to raise dependency ranges in `package.json` and `pnpm-lock.yaml` to the latest compatible versions.
+  In an existing project, pass only the added or changed packages.
+- Run `pnpm dedupe` after every dependency update.
+
 ## Notes
 
 - In `package.json`, insert `packageManager` and then `devEngines` immediately after `version` instead of appending them after the existing fields.

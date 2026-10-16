@@ -45,10 +45,28 @@ Treat them as the source of truth.
 ## Block rules
 
 - Resolve block paths relative to this `SKILL.md`.
-- Copy full files as-is.
+- Copy full files as-is, except for resolving versions as described in [Versions](#versions).
 - When a block ships a fragment for an existing file, merge it into the file with the same path.
 - When merging block fragments, preserve applicable comments from the blocks.
   Treat those comments as semantic documentation, not formatting noise.
 - Use each block's `BLOCK.md` only as application notes for that block, and never copy it into the target project.
 - Preserve project-specific customizations when assessing existing projects.
 - Stop if a required block or fragment is missing.
+
+## Versions
+
+Block files record the versions of tools, package managers, packages, and GitHub Actions that were current when the block was last updated.
+Treat them as minimum versions, not literal versions to install.
+Whenever a workflow adds or proposes a version from a block, use the latest stable release that is compatible with it:
+
+- Treat a calendar version, such as `version: 2026.7.15` for mise in `jdx/mise-action`, as compatible with every later release.
+- Treat an exact version, such as `bun = "1.4.3"` in `mise.toml`, `bun@1.4.3` in `packageManager`, or `changesets/action@v2.1.2`, as a caret range.
+- Keep the semantics of ranges and partial versions, such as `^0.22.14`, `~6.0.3`, `node = "24"`, or `actions/checkout@v6`.
+- Write the resolved version in the block's specifier form: an exact version stays exact, a range keeps its operator with the resolved version as its lower bound, and a partial version stays unchanged.
+  When a version carries derived values, set it through the tool that owns them, such as `corepack use pnpm@x.y.z` for `packageManager` with its integrity hash; never write derived values by hand.
+- Use the same resolved version everywhere the same tool or package appears.
+- Lock the resolved versions in the same change: package dependencies in the package-manager lockfile and `mise.toml` tools in `mise.lock`.
+- Never downgrade a version that an existing project already uses.
+
+Update package dependencies as described in the selected runtime block's `BLOCK.md`.
+Resolve mise tool versions with `mise latest tool@prefix` and the mise version itself with `npm view @jdxcode/mise version`.

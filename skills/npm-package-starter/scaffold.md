@@ -40,7 +40,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
    - Preserve the bootstrap-only `NODE_AUTH_TOKEN` environment block in `.github/workflows/test-and-release.yml` until the initial publication is confirmed.
 9. Run `mise trust`.
 10. Run `mise install`.
-11. Run `bun install`.
+11. Run `bun install`, then update and deduplicate dependencies as described in `blocks/runtime/bun/BLOCK.md`.
 12. Run `mise lock`.
 13. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`.
 
@@ -49,6 +49,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
 Always tell the user:
 
 - which blocks were applied
+- which versions were resolved newer than the block versions
 - whether `git init` was needed
 - which placeholders or publish-critical fields still need review
 - whether `bootstrap.md` was fully customized and remains ignored by Git

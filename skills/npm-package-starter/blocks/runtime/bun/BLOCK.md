@@ -15,6 +15,12 @@ Merge into the matching files:
 - `mise.toml`
 - `package.json`
 
+## Dependency updates
+
+- After `bun install`, run `bun update` without `--latest` to raise dependency ranges in `package.json` and `bun.lock` to the latest compatible versions.
+  In an existing project, pass only the added or changed packages.
+- Run `bun dedupe` after every dependency update.
+
 ## Notes
 
 - In `package.json`, insert `packageManager` immediately after `version` instead of appending it after the existing fields.
