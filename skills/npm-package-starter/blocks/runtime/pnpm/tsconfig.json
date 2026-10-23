@@ -1,4 +1,8 @@
 {
   "extends": "tsconfig-vite-node",
+  "compilerOptions": {
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
   "include": ["src/**/*.ts", "*.ts"]
 }
