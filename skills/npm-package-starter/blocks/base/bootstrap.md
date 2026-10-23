@@ -107,7 +107,7 @@ VERSION_PR="$(
     --jq '.[0].number'
 )"
 test -n "$VERSION_PR" &&
-  gh pr merge "$VERSION_PR" --squash --delete-branch
+  gh pr merge "$VERSION_PR" --rebase --delete-branch
 unset VERSION_PR
 ```
 
