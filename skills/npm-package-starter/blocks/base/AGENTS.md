@@ -21,6 +21,9 @@ Do not catalog files or restate information evident from their names and locatio
 ## Documentation
 
 - Write public README and JSDoc text for package users who do not know the implementation.
+- Describe what the package does and what users observe, not how it works internally.
+- In user documentation, explain an edge case when it helps users prepare or act, not when it only repeats what the API errors or the existing text already say.
+- When a change makes an existing statement false, fix that statement rather than add an explanation next to it.
 - Add JSDoc to every exported declaration and to internal helpers whose contract, inputs, output, or failure behavior is not obvious.
 - Add inline comments beside every non-obvious invariant, algorithmic choice, safety constraint, and intentionally limited behavior.
 - Update nearby JSDoc and inline comments whenever the documented code changes, and remove comments that no longer apply.
@@ -49,6 +52,9 @@ Describe the user-visible change.
 
 - Briefly describe the user-observable change or new capability in the public contract, without implementation details or rationale.
   Prefer a single sentence.
+- For a fix, describe the problem users saw, not how the fix works:
+  - Avoid: "Compare cache keys by the normalized path instead of the raw argument."
+  - Prefer: "Fix stale results when the same file is passed through different relative paths."
 - Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the release workflow consumes pending changesets.
 
 ## Tests
