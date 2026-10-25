@@ -2,7 +2,7 @@ jobs:
   test-and-release:
     steps:
       - name: Setup npm authentication
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           # Node is already provided by mise.
           # Creates .npmrc to use NODE_AUTH_TOKEN for the first publish.
