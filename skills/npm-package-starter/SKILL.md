@@ -60,7 +60,7 @@ Treat them as minimum versions, not literal versions to install.
 Whenever a workflow adds or proposes a version from a block, use the latest stable release that is compatible with it:
 
 - Treat a calendar version, such as `version: 2026.7.15` for mise in `jdx/mise-action`, as compatible with every later release.
-- Treat an exact version, such as `bun = "1.4.3"` in `mise.toml`, `bun@1.4.3` in `packageManager`, or `changesets/action@v2.1.2`, as a caret range.
+- Treat an exact version, such as `bun = "1.4.4"` in `mise.toml`, `bun@1.4.4` in `packageManager`, or `changesets/action@v2.1.2`, as a caret range.
 - Keep the semantics of ranges and partial versions, such as `^0.22.14`, `~6.0.3`, `node = "24"`, or `actions/checkout@v6`.
 - Write the resolved version in the block's specifier form: an exact version stays exact, a range keeps its operator with the resolved version as its lower bound, and a partial version stays unchanged.
   When a version carries derived values, set it through the tool that owns them, such as `corepack use pnpm@x.y.z` for `packageManager` with its integrity hash; never write derived values by hand.
