@@ -2,6 +2,7 @@
   "packageManager": "bun@1.4.4",
   "scripts": {
     "test": "bun test",
+    "types": "bun check && bun check -p tests",
     "prepublishOnly": "bun run build"
   },
   "devDependencies": {
