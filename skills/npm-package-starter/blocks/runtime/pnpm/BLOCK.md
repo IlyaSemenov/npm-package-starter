@@ -22,7 +22,7 @@ Merge into the matching files:
 
 ## Dependency updates
 
-- After `pnpm install`, run `pnpm update` without `--latest` to raise dependency ranges in `package.json` and `pnpm-lock.yaml` to the latest compatible versions.
+- After `pnpm install`, run `pnpm update --latest` to raise dependencies in `package.json` and `pnpm-lock.yaml` to their latest releases; it keeps each specifier's form.
   In an existing project, pass only the added or changed packages.
 - Run `pnpm dedupe` after every dependency update.
 

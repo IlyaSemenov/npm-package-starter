@@ -17,7 +17,7 @@ Merge into the matching files:
 
 ## Dependency updates
 
-- After `bun install`, run `bun update` without `--latest` to raise dependency ranges in `package.json` and `bun.lock` to the latest compatible versions.
+- After `bun install`, run `bun update --latest` to raise dependencies in `package.json` and `bun.lock` to their latest releases; it keeps each specifier's form.
   In an existing project, pass only the added or changed packages.
 - Run `bun dedupe` after every dependency update.
 

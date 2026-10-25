@@ -57,16 +57,16 @@ Treat them as the source of truth.
 
 Block files record the versions of tools, package managers, packages, and GitHub Actions that were current when the block was last updated.
 Treat them as minimum versions, not literal versions to install.
-Whenever a workflow adds or proposes a version from a block, use the latest stable release that is compatible with it:
+Whenever a workflow adds or proposes a version from a block, use the latest stable release, including a new major version:
 
-- Treat a calendar version, such as `version: 2026.10.19` for mise in `jdx/mise-action`, as compatible with every later release.
-- Treat an exact version, such as `bun = "1.4.4"` in `mise.toml`, `bun@1.4.4` in `packageManager`, or `changesets/action@v2.1.2`, as a caret range.
-- Keep the semantics of ranges and partial versions, such as `^0.22.14`, `~6.0.3`, `node = "24"`, or `actions/checkout@v6`.
-- Write the resolved version in the block's specifier form: an exact version stays exact, a range keeps its operator with the resolved version as its lower bound, and a partial version stays unchanged.
+- For Node.js, use the latest LTS major.
+- Use an older release only when the latest one breaks the build, typecheck, or tests, or falls outside a peer dependency range of another package; use the newest release that works and report why.
+- When a resolved version that works is newer than the block's version, propose updating the block in this skill to it.
+- Write the resolved version in the block's specifier form: an exact version, such as `bun = "1.4.4"` or `changesets/action@v2.1.2`, stays exact; a range, such as `^0.22.14` or `~6.0.3`, keeps its operator with the resolved version as its lower bound; and a partial version, such as `node = "24"` or `actions/checkout@v7`, keeps its precision.
   When a version carries derived values, set it through the tool that owns them, such as `corepack use pnpm@x.y.z` for `packageManager` with its integrity hash; never write derived values by hand.
 - Use the same resolved version everywhere the same tool or package appears.
 - Lock the resolved versions in the same change: package dependencies in the package-manager lockfile and `mise.toml` tools in `mise.lock`.
 - Never downgrade a version that an existing project already uses.
 
 Update package dependencies as described in the selected runtime block's `BLOCK.md`.
-Resolve mise tool versions with `mise latest tool@prefix` and the mise version itself with `npm view @jdxcode/mise version`.
+Resolve mise tool versions with `mise latest tool` and the mise version itself with `npm view @jdxcode/mise version`.
