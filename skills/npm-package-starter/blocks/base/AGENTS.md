@@ -9,6 +9,14 @@ Read [README.md](README.md) completely before changing the public API, package b
 Extend this guide only with stable, non-obvious conventions, architecture, contracts, workflows, and gotchas.
 Do not catalog files or restate information evident from their names and locations.
 
+## Release status
+
+The package is at version 0.0.0 and has no users; remove this section with the initial release.
+
+- Judge a change only by the contract it produces.
+  Do not compare behavior with previous revisions, call changes breaking, or add compatibility paths, migration notes, or deprecations.
+- Do not add changesets: the pending initial release covers every change.
+
 ## Scope
 
 - Keep production code in `src/`.

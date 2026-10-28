@@ -38,6 +38,7 @@ Copy to the project root:
 - The base package builds and publishes ESM only.
 - Apply the `cjs` block when consumers also require CommonJS output.
 - `repository.url` is publish-critical metadata. If `OWNER/REPO` cannot be derived reliably, ask instead of guessing.
+- The `Release status` section of `AGENTS.md` applies only to a package that has not been released; omit it from a released package.
 - `bootstrap.md` is created only by the scaffold workflow and must never be committed to the generated project.
 - If the GitHub repository or remote already exists, replace the repository-creation command with commands matching the actual state.
 - Tool installation and lockfile generation happen after the full block stack is assembled.
