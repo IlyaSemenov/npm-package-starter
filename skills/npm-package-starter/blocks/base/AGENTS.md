@@ -20,11 +20,26 @@ The package is at version 0.0.0 and has no users; remove this section with the i
 ## Scope
 
 - Keep production code in `src/`.
-- Keep focused module tests beside their source.
+- Name a directory of one concept in the singular, such as `parser/`, and a directory of like items in the plural, such as `rules/`.
+- Keep focused module tests beside their source: `foo.test.ts` and `foo.type-test.ts` test `foo.ts`.
+- Test each behavior at the lowest level that can check it: a helper directly, a module that combines helpers by its own unit tests.
 - Keep integration and package-boundary tests in `tests/`.
 - Name runtime tests `*.test.ts` and compile-only type tests `*.type-test.ts`.
 - Keep `src/index.ts` limited to explicit public exports.
+- Export from `src/index.ts` every type that the inferred types of public values reference, so that the declarations of a consumer module can name them.
 - Treat `package.json` exports and supported runtimes as public contracts.
+
+## Design
+
+- With every change, look for refactorings that reduce complexity: duplicated logic, a concept spread over several modules, or code that an upcoming feature will need elsewhere.
+  Make those that belong to the change, and propose the others in the final report.
+- Give a domain rule or contract its own function or module at its first use, such as how a cache key is built or which values an option accepts, so that the next use finds it.
+  Do not extract code that only looks alike.
+- Before adding a helper, search for an existing one that does the same.
+
+## Refactoring
+
+- When moving or splitting code, move its tests to follow it.
 
 ## Documentation
 
