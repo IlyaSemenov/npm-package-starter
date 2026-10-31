@@ -27,7 +27,7 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v5
         with:
-          version: 2026.10.19
+          version: 2026.10.25
 
       - name: Install deps
         run: bun install --frozen-lockfile
