@@ -53,6 +53,7 @@ What the starter configures:
 - A personalized MIT license.
 - A starting `AGENTS.md`.
 - CI database service: optional PostgreSQL for tests that need it.
+- Documentation site: optional VitePress site published to GitHub Pages.
 - Markdown linting and editor defaults.
 
 The sync workflow does not rewrite an existing project automatically. It compares the project with the starter and reports what matches, what is missing, and what should be reviewed before changing.

@@ -26,7 +26,7 @@ The `scaffold` workflow applies selected blocks to create a project; the `sync` 
 
 The starter defines a ready-to-publish TypeScript package setup with build, test, lint, release, and CI wired together.
 The default setup is ESM-only with Bun and OXC.
-Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, and PostgreSQL-in-CI are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
+Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, PostgreSQL-in-CI, and a VitePress documentation site are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
 
 The block files live under `blocks/` in this skill directory.
 Treat them as the source of truth.
@@ -41,6 +41,7 @@ Treat them as the source of truth.
 | `linting/biome/`  | Biome linting and formatting                  |
 | `linting/eslint/` | ESLint linting and formatting                 |
 | `ci/postgres/`    | PostgreSQL service for GitHub Actions tests   |
+| `docs/vitepress/` | VitePress documentation site on GitHub Pages  |
 
 ## Block rules
 

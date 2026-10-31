@@ -11,6 +11,7 @@ Use the package name from the user request; if it is missing and cannot be deriv
 
 The default build publishes ESM only.
 Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also publish CommonJS output.
+Apply `blocks/docs/vitepress/` after the runtime and linting blocks when the package needs a documentation site.
 
 ## Workflow
 
@@ -42,7 +43,7 @@ Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also 
 10. Run `mise install`.
 11. Run `bun install`, then update and deduplicate dependencies as described in `blocks/runtime/bun/BLOCK.md`.
 12. Run `mise lock`.
-13. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`.
+13. Verify `bun test`, `bun run types`, `bun run lint`, and `bun run build`; when `docs/vitepress` is applied, also verify `bun run docs:build`.
 
 ## Report
 
@@ -55,6 +56,7 @@ Always tell the user:
 - whether `bootstrap.md` was fully customized and remains ignored by Git
 - that all remaining repository and npm setup continues from `bootstrap.md`
 - whether `mise trust`, `mise install`, `bun install`, `mise lock`, test, types, lint, and build passed
+- whether the docs build passed, when `docs/vitepress` is applied
 
 ## Constraints
 
