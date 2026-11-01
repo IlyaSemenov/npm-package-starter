@@ -20,6 +20,12 @@
       "semicolons": "asNeeded"
     }
   },
+  "markdown": {
+    "formatter": {
+      // Formatting embedded code mangles fenced Markdown examples with frontmatter.
+      "formatEmbeds": false
+    }
+  },
   "assist": {
     "enabled": true,
     "actions": {
