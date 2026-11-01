@@ -102,7 +102,7 @@ Merge the Version pull request.
 VERSION_PR="$(
   gh pr list \
     --state open \
-    --search '"Version " in:title' \
+    --head changeset-release/main \
     --json number \
     --jq '.[0].number'
 )"
@@ -169,7 +169,7 @@ Run the authentication check from step 1, then find the Version pull request for
 ```sh
 gh pr list \
   --state open \
-  --search '"Version " in:title'
+  --head changeset-release/main
 ```
 
 If there is none, stop and tell the user to push the update with its changesets to `main` and wait for the workflow to open the Version pull request.
