@@ -1,6 +1,6 @@
 pre-commit:
   commands:
     biome:
-      glob: "**/*.{js,ts,mjs,cjs,json,jsonc}"
+      glob: "**/*.{js,ts,mjs,cjs,json,jsonc,md}"
       run: ./node_modules/.bin/biome check --write {staged_files}
       stage_fixed: true
