@@ -5,7 +5,7 @@
   },
   "devDependencies": {
     "@ilyasemenov/oxc-config": "^0.1.1",
-    "oxfmt": "^0.71.0",
-    "oxlint": "^1.86.0"
+    "oxfmt": "^0.75.0",
+    "oxlint": "^1.90.0"
   }
 }
