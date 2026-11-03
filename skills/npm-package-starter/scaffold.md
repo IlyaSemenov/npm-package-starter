@@ -8,10 +8,13 @@ Use the package name from the user request; if it is missing and cannot be deriv
 1. `blocks/base/`
 2. `blocks/runtime/bun/`
 3. `blocks/linting/oxc/`
+4. `blocks/release/changesets-local/`
 
-The default build publishes ESM only.
+The default package publishes ESM only, and the maintainer releases it from a terminal.
 Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also publish CommonJS output.
-Apply `blocks/docs/vitepress/` after the runtime and linting blocks when the package needs a documentation site.
+Apply `blocks/ci/postgres/` before the release block when the package tests need PostgreSQL in CI.
+Apply `blocks/release/changesets-action/` instead of `blocks/release/changesets-local/` when the package must be released from GitHub Actions through a Version pull request, such as to publish with npm provenance.
+Apply `blocks/docs/vitepress/` after the release block when the package needs a documentation site.
 
 ## Workflow
 
@@ -34,11 +37,9 @@ Apply `blocks/docs/vitepress/` after the runtime and linting blocks when the pac
    - Otherwise ask the user before filling `repository.url` or any other publish-critical field.
 8. Customize `bootstrap.md` for the resolved project, user, runtime, repository state, and repository visibility.
    - Leave no unresolved or example placeholders.
-   - Keep the file excluded by `.git/info/exclude`.
+   - Add `/bootstrap.md` to `.git/info/exclude`, never to the committed `.gitignore`; the checklist removes this rule during its final cleanup.
    - Verify that `git check-ignore bootstrap.md` succeeds.
-   - Preserve the npm CLI token flow from the template.
-   - Run token creation during bootstrap, pausing for the npm password and browser-based two-factor authentication, then upload the printed token through the interactive GitHub secret prompt.
-   - Preserve the bootstrap-only `NODE_AUTH_TOKEN` environment block in `.github/workflows/test-and-release.yml` until the initial publication is confirmed.
+   - If the GitHub repository or remote already exists, replace the repository-creation command with commands matching the actual state.
 9. Run `mise trust`.
 10. Run `mise install`.
 11. Run `bun install`, then update and deduplicate dependencies as described in `blocks/runtime/bun/BLOCK.md`.

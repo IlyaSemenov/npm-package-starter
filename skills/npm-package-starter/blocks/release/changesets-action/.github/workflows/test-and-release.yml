@@ -4,12 +4,6 @@ env:
   # Keep in sync with .changeset/config.json:baseBranch
   MAIN_REF: refs/heads/main
 
-on:
-  push:
-    branches: ["**"]
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 # Publish to npm with OIDC
 permissions:
   contents: write
@@ -19,18 +13,15 @@ permissions:
 jobs:
   test-and-release:
     name: Test and Release
-    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup mise
-        uses: jdx/mise-action@v5
+      # for npx publish
+      - name: Setup Node
+        uses: actions/setup-node@v7
         with:
-          version: 2026.10.25
-
-      # Runtime blocks insert setup/install/build/typecheck/test steps here.
+          node-version: 26
+          # Creates .npmrc to use NODE_AUTH_TOKEN for the first publish.
+          registry-url: https://registry.npmjs.org
 
       - name: Capture release title
         if: ${{ github.ref == env.MAIN_REF }}

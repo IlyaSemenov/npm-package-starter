@@ -26,22 +26,25 @@ The `scaffold` workflow applies selected blocks to create a project; the `sync` 
 
 The starter defines a ready-to-publish TypeScript package setup with build, test, lint, release, and CI wired together.
 The default setup is ESM-only with Bun and OXC.
-Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, PostgreSQL-in-CI, and a VitePress documentation site are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
+The maintainer releases the package from a terminal with changesets-local.
+Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, PostgreSQL-in-CI, releases from GitHub Actions, and a VitePress documentation site are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
 
 The block files live under `blocks/` in this skill directory.
 Treat them as the source of truth.
 
-| Block             | Purpose                                       |
-| ----------------- | --------------------------------------------- |
-| `base/`           | Shared package skeleton and baseline defaults |
-| `cjs/`            | CommonJS output alongside the default ESM     |
-| `runtime/bun/`    | Bun runtime for development and testing       |
-| `runtime/pnpm/`   | Node/pnpm runtime for development and testing |
-| `linting/oxc/`    | OXC linting and formatting                    |
-| `linting/biome/`  | Biome linting and formatting                  |
-| `linting/eslint/` | ESLint linting and formatting                 |
-| `ci/postgres/`    | PostgreSQL service for GitHub Actions tests   |
-| `docs/vitepress/` | VitePress documentation site on GitHub Pages  |
+| Block                        | Purpose                                           |
+| ---------------------------- | ------------------------------------------------- |
+| `base/`                      | Shared package skeleton and baseline defaults     |
+| `cjs/`                       | CommonJS output alongside the default ESM         |
+| `runtime/bun/`               | Bun runtime for development and testing           |
+| `runtime/pnpm/`              | Node/pnpm runtime for development and testing     |
+| `linting/oxc/`               | OXC linting and formatting                        |
+| `linting/biome/`             | Biome linting and formatting                      |
+| `linting/eslint/`            | ESLint linting and formatting                     |
+| `ci/postgres/`               | PostgreSQL service for GitHub Actions tests       |
+| `release/changesets-local/`  | Releases from the maintainer's terminal           |
+| `release/changesets-action/` | Releases from GitHub Actions through a Version PR |
+| `docs/vitepress/`            | VitePress documentation site on GitHub Pages      |
 
 ## Block rules
 

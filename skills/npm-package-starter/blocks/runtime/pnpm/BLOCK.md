@@ -12,7 +12,7 @@ Copy to the project root:
 
 Merge into the matching files:
 
-- `.github/workflows/test-and-release.yml`
+- `.github/workflows/test.yml`
 - `mise.toml`
 - `package.json`
 

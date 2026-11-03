@@ -85,7 +85,7 @@ Describe the user-visible change.
 - For a fix, describe the problem users saw, not how the fix works:
   - Avoid: "Compare cache keys by the normalized path instead of the raw argument."
   - Prefer: "Fix stale results when the same file is passed through different relative paths."
-- Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the release workflow consumes pending changesets.
+- Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the maintainer releases pending changesets.
 
 ## Tests
 

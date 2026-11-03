@@ -48,8 +48,8 @@ What the starter configures:
 - Linting and formatting: OXC by default, or Biome and ESLint.
 - Tool versions managed with `mise`.
 - Git hooks managed with `lefthook`.
-- Releases managed with Changesets.
-- Test and release automation through GitHub Actions.
+- Releases managed with Changesets: published from the maintainer's terminal with [changesets-local](https://github.com/IlyaSemenov/changesets-local) by default, or from GitHub Actions through a Version pull request with npm provenance.
+- Test automation through GitHub Actions.
 - A personalized MIT license.
 - A starting `AGENTS.md`.
 - CI database service: optional PostgreSQL for tests that need it.
@@ -60,7 +60,15 @@ The sync workflow does not rewrite an existing project automatically. It compare
 
 ## Bootstrap
 
-After scaffolding, the generated `bootstrap.md` in the project root sets up publishing in two phases.
+After scaffolding, the generated `bootstrap.md` in the project root guides an agent through creating the GitHub repository and preparing the initial release.
+
+By default, the agent ends by asking you to publish the initial release from your terminal:
+
+```sh
+bun run release
+```
+
+With releases from GitHub Actions, the checklist has two phases:
 
 1. Initial publication, right after scaffolding: create the GitHub repository, publish the first version with a temporary npm token, then delete the token.
 2. First update, whenever it is ready: configure npm Trusted Publishing (OIDC) and publish the update with it.

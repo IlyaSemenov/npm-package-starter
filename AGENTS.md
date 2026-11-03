@@ -24,6 +24,7 @@ Keep each rule in one owning document; when another audience depends on it, rout
 - Update the owning `BLOCK.md` whenever a block adds, removes, renames, or changes how it applies a template file.
 - Put block-local copy, merge, and placeholder replacement instructions in the owning `BLOCK.md`, put cross-block sequencing and project-wide customization in the workflow document, and describe adaptations without repeating generated-project instructions.
 - Inspect the assembled default stack and every affected variant after changing files composed from multiple blocks.
+- Keep the steps shared by the `bootstrap.md` files of the `release/*` blocks identical.
 
 ## Documentation
 
