@@ -29,7 +29,7 @@ Merge into the matching files:
 
 - Rename `.github/workflows/test-and-release.yml` to `test.yml` and its job `test-and-release` to `test`, and take the workflow `name`, job `name`, and `permissions` from `base/`.
   Keep the job's runtime and CI steps, services, and project-specific settings.
-- In the workflow, remove `MAIN_REF` from `env`, and `env` itself when it becomes empty, the `Setup Node` or `Setup npm authentication` step, and the `Capture release title` and `Create Release Pull Request or Publish to npm` steps.
+- In the workflow, remove `MAIN_REF` from `env`, and `env` itself when it becomes empty, the `Setup Node` or `Setup npm authentication` step, the `Capture release title` or `Capture release version` step, and the `Create Release Pull Request or Publish to npm` step.
 - Remove `publishConfig.provenance` from `package.json`.
 - Close the open Version pull request, if there is one.
 - Delete the `NPM_TOKEN` repository secret, if it exists, and revoke the npm Trusted Publisher of the package with `npm trust list` and `npm trust revoke`.
