@@ -7,6 +7,7 @@ Provides the starting package that other blocks build on.
 Copy to the project root:
 
 - `.changeset/`
+- `.editorconfig`
 - `.github/`
 - `.gitignore`
 - `.markdownlint.yaml`
