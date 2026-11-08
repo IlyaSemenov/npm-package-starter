@@ -37,6 +37,14 @@ Include lockfile updates with the safe mechanical change that caused them:
 - Regenerate the package-manager lockfile after changing dependencies in the package manifest.
 - Ensure `mise.lock` exists and run `mise lock` after changing tools in `mise.toml`.
 
+## Commits
+
+Make every sync change self-sufficient in the target project:
+
+- Split the changes into commits that each make one meaningful change; do not bundle unrelated differences because they come from the same block.
+- Name each commit after what it changes in the project, such as `Add EditorConfig`, never after its relation to the starter, such as `Align package skeleton with starter`.
+- Do not mention the starter, its blocks, or the sync in commit messages, changesets, documentation, or comments of the target project.
+
 ## Report
 
 Always separate findings into:
