@@ -16,6 +16,7 @@ The package is at version 0.0.0 and has no users; remove this section with the i
 - Judge a change only by the contract it produces.
   Do not compare behavior with previous revisions, call changes breaking, or add compatibility paths, migration notes, or deprecations.
 - Do not add changesets: the pending initial release covers every change.
+- Keep the history to the single commit of the initial release and amend it with every change: do not add commits, split a task into commits, or propose commit messages.
 
 ## Scope
 
