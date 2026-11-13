@@ -23,7 +23,6 @@ Merge into the matching files:
 
 ## Notes
 
-- In `package.json`, insert `packageManager` immediately after `version` instead of appending it after the existing fields.
 - The `types` script replaces the base script that runs `tsc`.
   Keep `typescript` in `devDependencies`, because tsdown uses it to generate declarations.
 - When the project runs `vue-tsc` or `nuxt typecheck`, use the latest `typescript` 6.x and keep `bun check` for the other type checks.

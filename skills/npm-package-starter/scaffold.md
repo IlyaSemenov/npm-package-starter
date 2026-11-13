@@ -24,6 +24,7 @@ Apply `blocks/docs/vitepress/` after the release block when the package needs a 
 4. Normalize merged configuration files after the complete selected block stack is assembled:
    - In `.vscode/*.json`, merge arrays without duplicates, sort string arrays alphabetically, and recursively sort object keys alphabetically.
    - In `mise.toml`, order tables as `[settings]`, its subtables, and then `[tools]`, and sort keys alphabetically within each table.
+   - In `package.json`, insert `packageManager`, followed by `devEngines` with `runtime/pnpm`, immediately after `version`; skip this with `linting/oxc`, because oxfmt orders all `package.json` fields.
 5. Resolve project and user metadata from explicit user input or reliable authenticated sources:
    - package name, author, and description
    - current year for the license notice
