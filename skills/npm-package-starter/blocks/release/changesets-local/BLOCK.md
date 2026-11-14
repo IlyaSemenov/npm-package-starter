@@ -20,8 +20,8 @@ Merge into the matching files:
 
 ## Notes
 
-- With `runtime/pnpm`, replace `bun run` with `pnpm run` in the `release:check` script and in `bootstrap.md`.
-- Keep `release:check` running the same checks as the test workflow; changesets-local runs it before asking to confirm a release.
+- With `runtime/pnpm`, replace `bun run` with `pnpm run` in `bootstrap.md`.
+- Add a `release:check` script only for checks that the test workflow does not run, and remove one that repeats them: changesets-local waits for the test workflow of the released commit before publishing.
 - changesets-local requires `"commit": false` in `.changeset/config.json`.
 - `node` in `mise.toml` provides Node.js and npm, which changesets-local and `changeset publish` run on; with `runtime/pnpm`, the runtime block already provides it.
 
