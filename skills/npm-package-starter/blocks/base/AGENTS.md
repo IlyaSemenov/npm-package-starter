@@ -6,7 +6,11 @@ description
 
 Read [README.md](README.md) completely before changing the public API, package behavior, supported runtimes, or user documentation.
 
-Extend this guide only with stable, non-obvious conventions, architecture, contracts, workflows, and gotchas.
+Read the relevant guide in [development/](development/README.md) before starting:
+
+- [user-documentation.md](development/user-documentation.md) before changing user documentation.
+
+Extend this guide only with stable, non-obvious conventions, architecture, contracts, workflows, and gotchas that most changes need; put those of one topic in a guide in development/, and list the guide in its index and above with the task that needs it.
 Do not catalog files or restate information evident from their names and locations.
 
 ## Release status
@@ -45,48 +49,18 @@ The package is at version 0.0.0 and has no users; remove this section with the i
 ## Documentation
 
 - Write public README and JSDoc text for package users who do not know the implementation.
-- Write user documentation as a guide to using the API in plain terms: what to call and what it does, not how it is typed or implemented.
-- Start each section of user documentation from what users want to achieve in their application, such as retrying failed requests, rather than from a description of the package or its concepts.
-  Name only a task that users really have; when none fits, state plainly what the API does instead of inventing a task for a "To …" opening.
-  Open with a short statement of the common case and its example, and put details, alternatives, and edge cases after the example.
-- Other things being equal, write the happy path as an instruction of what to do, such as "Pass the options to `connect`", rather than as a description of the API, such as "`connect` takes options".
-  This is a preference, not a rule: keep a description wherever it reads more clearly.
-- Do not restate in prose what users see in their editor's types or learn from a TypeScript or runtime error.
-- Mention an edge case in user documentation only when users must write different code because of it; cover other edge cases with tests.
-- Write a rule that users must follow as an instruction, such as to call `close` before the process exits, rather than as the check or error that enforces it.
 - When a change makes an existing statement false, fix that statement rather than add an explanation next to it.
 - Add JSDoc to every exported declaration and to internal helpers whose contract, inputs, output, or failure behavior is not obvious.
 - Add inline comments beside every non-obvious invariant, algorithmic choice, safety constraint, and intentionally limited behavior.
 - Update nearby JSDoc and inline comments whenever the documented code changes, and remove comments that no longer apply.
 - Do not narrate self-evident syntax or restate what a name already communicates.
-- Do not document obvious or implied defaults.
 - Describe a default only when readers need it to make a decision or avoid surprising behavior.
 - Use One Sentence Per Line for connected prose.
-- Keep semantically connected explanations as prose paragraphs.
-- Use lists for separate assertions instead of presenting them as prose paragraphs.
+- Keep semantically connected explanations as prose paragraphs, and use lists for separate assertions.
 
 ## Changesets
 
-- Add one `.changeset/*.md` file for each independently releasable user-visible change.
-- Do not add changesets for internal refactors, maintenance, tests, or documentation changes that do not require a package release.
-- Choose the SemVer bump from the public contract: `patch` for backward-compatible fixes and `minor` for backward-compatible functionality.
-- Before 1.0, use `minor` for breaking changes; starting with 1.0, use `major` and remove this rule.
-- Create `.changeset/<unique-name>.md` with this format:
-
-```markdown
----
-"package-name": patch
----
-
-Describe the user-visible change.
-```
-
-- Briefly describe the user-observable change or new capability in the public contract, without implementation details or rationale.
-  Prefer a single sentence.
-- For a fix, describe the problem users saw, not how the fix works:
-  - Avoid: "Compare cache keys by the normalized path instead of the raw argument."
-  - Prefer: "Fix stale results when the same file is passed through different relative paths."
-- Do not edit the package version or `CHANGELOG.md` by hand, and do not run `changeset version` or `changeset publish`; the maintainer releases pending changesets.
+- Add changesets as [.changeset/README.md](.changeset/README.md) describes.
 
 ## Tests
 

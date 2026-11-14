@@ -14,6 +14,7 @@ Copy to the project root:
 - `.vscode/`
 - `AGENTS.md`
 - `CLAUDE.md`
+- `development/`
 - `LICENSE`
 - `lefthook.yml`
 - `mise.toml`
@@ -25,7 +26,7 @@ Copy to the project root:
 
 ## Review
 
-- Replace `package-name` in `AGENTS.md`, `README.md`, `package.json`, `.changeset/initial-release.md`, and `tests/tsconfig.json`.
+- Replace `package-name` in `AGENTS.md`, `README.md`, `package.json`, `.changeset/README.md`, `.changeset/initial-release.md`, and `tests/tsconfig.json`.
 - Replace `OWNER` and `REPO` in `package.json` only when the GitHub repository is known from a reliable source.
 - Replace `YEAR` and `author` in `LICENSE`.
 - Fill in `description` and `author`, including the `description` placeholder in `AGENTS.md`.

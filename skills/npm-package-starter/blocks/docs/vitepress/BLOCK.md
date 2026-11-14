@@ -14,6 +14,7 @@ Merge into the matching files:
 - `.github/workflows/test.yml`
 - `.gitignore`
 - `AGENTS.md`
+- `development/user-documentation.md`
 - `package.json`
 - `tsconfig.json`
 
@@ -30,7 +31,8 @@ Merge into the matching files:
 ## Notes
 
 - Append the `tsconfig.json` `include` entry to the runtime block's list.
-- In `AGENTS.md`, replace the Overview sentence about reading `README.md` with the fragment's sentence, put the Documentation bullets at the start of that section, write "public documentation" instead of "public README" in its other bullets, and append the Checks bullet.
+- In `AGENTS.md`, replace the Overview sentence about reading `README.md` with the fragment's sentence, put the Documentation bullet at the start of that section, write "public documentation" instead of "public README" in its other bullets, and append the Checks bullet.
+- In `development/user-documentation.md`, replace the sentence under the title with the fragment's first sentence, and insert its Site section before Content.
 - Insert the test workflow fragment after `Test package`; with `release/changesets-action`, merge it into the `test-and-release` job of `test-and-release.yml`.
 - With `release/changesets-local`, append `bun run docs:build` to the `release:check` script.
 - With `runtime/pnpm`, replace `bun install --frozen-lockfile` with `pnpm install --frozen-lockfile` in `docs.yml`, and `bun run docs:build` with `pnpm run docs:build` in `docs.yml`, the test workflow, and `release:check`.
