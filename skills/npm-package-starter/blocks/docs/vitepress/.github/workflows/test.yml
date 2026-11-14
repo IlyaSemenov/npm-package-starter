@@ -1,0 +1,5 @@
+jobs:
+  test:
+    steps:
+      - name: Build docs
+        run: bun run docs:build
