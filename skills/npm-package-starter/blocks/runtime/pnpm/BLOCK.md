@@ -29,4 +29,4 @@ Merge into the matching files:
 ## Notes
 
 - Insert the workflow fragment after `Setup mise` in the base workflow.
-- The workflow fragment assumes the package is installed, built, and tested through pnpm scripts.
+- The workflow fragment assumes the package is installed, built, and tested through pnpm scripts, and runs the `lint:check` script of the linting block.

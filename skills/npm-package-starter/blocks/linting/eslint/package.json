@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "lint:check": "eslint ."
   },
   "devDependencies": {
     "@ilyasemenov/eslint-config": "^1.4.2",

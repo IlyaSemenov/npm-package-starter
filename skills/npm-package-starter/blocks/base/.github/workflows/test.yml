@@ -24,4 +24,4 @@ jobs:
         with:
           version: 2026.11.7
 
-      # Runtime blocks insert setup/install/build/typecheck/test steps here.
+      # Runtime blocks insert setup/install/lint/build/typecheck/test steps here.

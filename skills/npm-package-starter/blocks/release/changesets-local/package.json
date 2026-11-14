@@ -1,7 +1,7 @@
 {
   "scripts": {
     "release": "changesets-local",
-    "release:check": "bun run build && bun run types && bun run test"
+    "release:check": "bun run lint:check && bun run build && bun run types && bun run test"
   },
   "devDependencies": {
     "changesets-local": "^1.6.0"
