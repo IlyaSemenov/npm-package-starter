@@ -1,6 +1,6 @@
 ## Overview
 
-Read the user documentation in [docs/](docs/) completely before changing the public API, package behavior, supported runtimes, or user documentation.
+Before changing the public API, package behavior, supported runtimes, or user documentation, read the pages of the user documentation in [docs/](docs/) that the change affects.
 
 ## Documentation
 
