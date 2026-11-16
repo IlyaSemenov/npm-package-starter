@@ -41,8 +41,9 @@ The package is at version 0.0.0 and has no users; remove this section with the i
 
 - With every change, look for refactorings that reduce the complexity of the code it touches, such as duplicated logic or a concept spread over several modules.
   Make those that ease the change, and propose the others in the final report, listed apart from its fixes.
-- Give a domain rule or contract a function of its own at its first use, such as how a cache key is built or which values an option accepts, so that the next use finds it; give it a module of its own only when several modules use it.
+- Give a domain rule or contract a function of its own at its first use, such as how a cache key is built or which values an option accepts, so that the next use finds it; move such a function to a module of its own when several modules use it.
   Do not extract code that only looks alike.
+- Split a module when it holds several distinct concepts that read better apart.
 - Before adding a helper, search for an existing one that does the same.
 
 ## Refactoring
