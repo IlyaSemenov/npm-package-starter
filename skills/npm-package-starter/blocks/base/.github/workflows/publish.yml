@@ -1,0 +1,49 @@
+name: Publish
+run-name: Publish ${{ inputs.versions || inputs.commit }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Release commit
+        required: true
+        type: string
+      versions:
+        description: Released versions, only for the run name
+        required: false
+        type: string
+
+# One publication at a time; a new run waits for the running one.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write # Push tags and create GitHub Releases.
+  id-token: write # Publish to npm with trusted publishing.
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    environment: npm
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # mise provides Node.js with npm, which publishes the package; trusted publishing needs npm 11.5.1 or later.
+      - name: Setup mise
+        uses: jdx/mise-action@v5
+        with:
+          version: 2026.11.7
+
+      # Runtime blocks insert the install step here.
+
+      - name: Publish
+        run: npx --no changesets-release ci "$COMMIT"
+        env:
+          COMMIT: ${{ inputs.commit }}
+          GH_TOKEN: ${{ github.token }}

@@ -12,6 +12,7 @@ Copy to the project root:
 
 Merge into the matching files:
 
+- `.github/workflows/publish.yml`
 - `.github/workflows/test.yml`
 - `mise.toml`
 - `package.json`
@@ -28,5 +29,6 @@ Merge into the matching files:
 
 ## Notes
 
-- Insert the workflow fragment after `Setup mise` in the base workflow.
-- The workflow fragment assumes the package is installed, built, and tested through pnpm scripts, and runs the `lint:check` script of the linting block.
+- Insert each workflow fragment after `Setup mise` in the base workflow of the same name.
+- Replace `bun run` with `pnpm run` in `bootstrap.md`.
+- The test workflow fragment assumes the package is installed, built, and tested through pnpm scripts, and runs the `lint:check` script of the linting block.

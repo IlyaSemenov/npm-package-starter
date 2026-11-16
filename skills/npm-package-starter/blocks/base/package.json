@@ -27,11 +27,13 @@
   "scripts": {
     "build": "tsdown",
     "prepare": "lefthook install",
+    "release": "changesets-release",
     "types": "tsc && tsc -p tests/tsconfig.json"
   },
   "devDependencies": {
     "@arethetypeswrong/core": "^0.18.5",
     "@changesets/cli": "^3.0.3",
+    "changesets-release": "^2.1.0",
     "publint": "^0.3.25",
     "tsdown": "^0.23.7",
     "typescript": "^7.0.2"

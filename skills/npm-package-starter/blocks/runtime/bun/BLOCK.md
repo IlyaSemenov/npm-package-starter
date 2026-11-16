@@ -11,6 +11,7 @@ Copy to the project root:
 
 Merge into the matching files:
 
+- `.github/workflows/publish.yml`
 - `.github/workflows/test.yml`
 - `mise.toml`
 - `package.json`
@@ -27,5 +28,5 @@ Merge into the matching files:
   Keep `typescript` in `devDependencies`, because tsdown uses it to generate declarations.
 - When the project runs `vue-tsc` or `nuxt typecheck`, use the latest `typescript` 6.x and keep `bun check` for the other type checks.
   `typescript` 7 has no JavaScript API, which `vue-tsc` requires.
-- Insert the workflow fragment after `Setup mise` in the base workflow.
-- The workflow fragment runs the `lint:check` script of the linting block.
+- Insert each workflow fragment after `Setup mise` in the base workflow of the same name.
+- The test workflow fragment runs the `lint:check` script of the linting block.

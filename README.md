@@ -48,7 +48,7 @@ What the starter configures:
 - Linting and formatting: OXC by default, or Biome and ESLint.
 - Tool versions managed with `mise`.
 - Git hooks managed with `lefthook`.
-- Releases managed with Changesets: published from the maintainer's terminal with [changesets-local](https://github.com/IlyaSemenov/changesets-local) by default, or from GitHub Actions through a Version pull request with npm provenance.
+- Releases managed with Changesets: released on demand from the maintainer's terminal with [changesets-release](https://github.com/IlyaSemenov/changesets-release) and published from GitHub Actions with npm provenance.
 - Test automation through GitHub Actions.
 - A personalized MIT license.
 - A starting `AGENTS.md`.
@@ -62,23 +62,16 @@ The sync workflow does not rewrite an existing project automatically. It compare
 
 After scaffolding, the generated `bootstrap.md` in the project root guides an agent through creating the GitHub repository and preparing the initial release.
 
-By default, the agent ends by asking you to publish the initial release from your terminal:
+The checklist has two phases:
 
-```sh
-bun run release
-```
+1. Initial publication, right after scaffolding: create the GitHub repository, then publish the first version from your terminal with `bun run release --publish=local`, because npm trusts a publishing workflow only for an existing package.
+2. First update, whenever it is ready: configure npm trusted publishing, then release the update with `bun run release`, which publishes it from GitHub Actions.
 
-With releases from GitHub Actions, the checklist has two phases:
-
-1. Initial publication, right after scaffolding: create the GitHub repository, publish the first version with a temporary npm token, then delete the token.
-2. First update, whenever it is ready: configure npm Trusted Publishing (OIDC) and publish the update with it.
-
-Trusted Publishing is configured only right before the first update because a new configuration expires unless it publishes within two days.
-Until then, the release workflow has no npm credentials, and merging a Version pull request fails to publish.
+Trusted publishing is configured only right before the first update because a new configuration expires unless it publishes within two days.
 
 Keep `bootstrap.md` after the initial publication.
-When the Version pull request for the first update is open, ask an agent in the project directory:
+When the first update is ready to release, ask an agent in the project directory:
 
 ```text
-Publish the first update following phase 2 of bootstrap.md.
+Prepare the first update following phase 2 of bootstrap.md.
 ```

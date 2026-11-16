@@ -8,13 +8,11 @@ Use the package name from the user request; if it is missing and cannot be deriv
 1. `blocks/base/`
 2. `blocks/runtime/bun/`
 3. `blocks/linting/oxc/`
-4. `blocks/release/changesets-local/`
 
 The default package publishes ESM only, and the maintainer releases it from a terminal.
 Apply `blocks/cjs/` immediately after `blocks/base/` when the package must also publish CommonJS output.
-Apply `blocks/ci/postgres/` before the release block when the package tests need PostgreSQL in CI.
-Apply `blocks/release/changesets-action/` instead of `blocks/release/changesets-local/` when the package must be released from GitHub Actions through a Version pull request, such as to publish with npm provenance.
-Apply `blocks/docs/vitepress/` after the release block when the package needs a documentation site.
+Apply `blocks/ci/postgres/` after the default stack when the package tests need PostgreSQL in CI.
+Apply `blocks/docs/vitepress/` last when the package needs a documentation site.
 
 ## Workflow
 

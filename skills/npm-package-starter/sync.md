@@ -30,6 +30,31 @@ When replacing Husky or lint-staged with Lefthook:
   Preserve any unrelated custom hooks path.
 - Run `lefthook install`, then remove the generated `.husky/` directory.
 
+## Release migrations
+
+When replacing changesets-local with changesets-release:
+
+- Replace the `changesets-local` dev dependency with `changesets-release`, and `changesets-local` with `changesets-release` in the `release` script.
+
+When replacing a Version pull request with `changesets/action`:
+
+- Rename `.github/workflows/test-and-release.yml` to `test.yml` and its job `test-and-release` to `test`, and take the workflow `name`, job `name`, and `permissions` from `blocks/base/`.
+  Keep the job's runtime and CI steps, services, and project-specific settings.
+- In the workflow, remove `MAIN_REF` from `env`, and `env` itself when it becomes empty, the `Capture release title` or `Capture release version` step, and the `Create Release Pull Request or Publish to npm` step.
+  Remove the `Setup Node` or `Setup npm authentication` step unless a project-specific step needs a Node.js version other than the one in `mise.toml`; then replace its comment with that reason.
+- Remove `publishConfig.provenance` from `package.json`: npm generates provenance with trusted publishing from a public repository.
+- Add `changesets-release` to the dev dependencies and the `release` script from `blocks/base/package.json`.
+- Close the open Version pull request, if there is one, and delete its `changeset-release/main` branch.
+- Disable creating and approving pull requests from GitHub Actions with `gh api --method PUT repos/OWNER/REPO/actions/permissions/workflow -F can_approve_pull_request_reviews=false`.
+- Delete the `NPM_TOKEN` repository secret, if it exists.
+
+In both cases:
+
+- Add `node` to `mise.toml`, the `if` condition of the `test` job, and `publish.yml` with the install step of the runtime block.
+- Limit the `npm` environment to the base branch with the commands of step 3 of `blocks/base/bootstrap.md`.
+- Right before the next release, configure the trusted publisher of `publish.yml` with the command of step 8 of `blocks/base/bootstrap.md`.
+  Revoke a trusted publisher of another workflow with `npm trust list` and `npm trust revoke`.
+
 ## Lockfile updates
 
 Include lockfile updates with the safe mechanical change that caused them:

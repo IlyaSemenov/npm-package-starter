@@ -13,6 +13,9 @@ permissions:
 jobs:
   test:
     name: Test
+    # A release commit only versions a commit whose CI the release has waited for.
+    # A skipped job satisfies required status checks, unlike a skipped workflow.
+    if: ${{ !startsWith(github.event.head_commit.message, 'Release ') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
 

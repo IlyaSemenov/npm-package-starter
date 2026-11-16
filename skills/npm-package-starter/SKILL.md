@@ -26,25 +26,23 @@ The `scaffold` workflow applies selected blocks to create a project; the `sync` 
 
 The starter defines a ready-to-publish TypeScript package setup with build, test, lint, release, and CI wired together.
 The default setup is ESM-only with Bun and OXC.
-The maintainer releases the package from a terminal with changesets-local.
-Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, PostgreSQL-in-CI, releases from GitHub Actions, and a VitePress documentation site are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
+The maintainer releases the package from a terminal with changesets-release, which publishes it from GitHub Actions with npm provenance.
+Dual CJS and ESM output, Node.js/pnpm, Biome, ESLint, PostgreSQL-in-CI, and a VitePress documentation site are supported variants with their own starter blocks, so existing projects can be assessed or updated without forcing a full migration to the default stack.
 
 The block files live under `blocks/` in this skill directory.
 Treat them as the source of truth.
 
-| Block                        | Purpose                                           |
-| ---------------------------- | ------------------------------------------------- |
-| `base/`                      | Shared package skeleton and baseline defaults     |
-| `cjs/`                       | CommonJS output alongside the default ESM         |
-| `runtime/bun/`               | Bun runtime for development and testing           |
-| `runtime/pnpm/`              | Node/pnpm runtime for development and testing     |
-| `linting/oxc/`               | OXC linting and formatting                        |
-| `linting/biome/`             | Biome linting and formatting                      |
-| `linting/eslint/`            | ESLint linting and formatting                     |
-| `ci/postgres/`               | PostgreSQL service for GitHub Actions tests       |
-| `release/changesets-local/`  | Releases from the maintainer's terminal           |
-| `release/changesets-action/` | Releases from GitHub Actions through a Version PR |
-| `docs/vitepress/`            | VitePress documentation site on GitHub Pages      |
+| Block             | Purpose                                                       |
+| ----------------- | ------------------------------------------------------------- |
+| `base/`           | Shared package skeleton, release setup, and baseline defaults |
+| `cjs/`            | CommonJS output alongside the default ESM                     |
+| `runtime/bun/`    | Bun runtime for development and testing                       |
+| `runtime/pnpm/`   | Node/pnpm runtime for development and testing                 |
+| `linting/oxc/`    | OXC linting and formatting                                    |
+| `linting/biome/`  | Biome linting and formatting                                  |
+| `linting/eslint/` | ESLint linting and formatting                                 |
+| `ci/postgres/`    | PostgreSQL service for GitHub Actions tests                   |
+| `docs/vitepress/` | VitePress documentation site on GitHub Pages                  |
 
 ## Block rules
 
@@ -66,7 +64,7 @@ Whenever a workflow adds or proposes a version from a block, use the latest stab
 - For Node.js, use the latest LTS major.
 - Use an older release only when the latest one breaks the build, typecheck, or tests, or falls outside a peer dependency range of another package; use the newest release that works and report why.
 - When a resolved version that works is newer than the block's version, propose updating the block in this skill to it.
-- Write the resolved version in the block's specifier form: an exact version, such as `bun = "1.4.4"` or `changesets/action@v2.1.2`, stays exact; a range, such as `^0.22.14` or `~6.0.3`, keeps its operator with the resolved version as its lower bound; and a partial version, such as `node = "24"` or `actions/checkout@v7`, keeps its precision.
+- Write the resolved version in the block's specifier form: an exact version, such as `bun = "1.4.4"` or `version: 2026.11.7` of `jdx/mise-action`, stays exact; a range, such as `^0.22.14` or `~6.0.3`, keeps its operator with the resolved version as its lower bound; and a partial version, such as `node = "24"` or `actions/checkout@v7`, keeps its precision.
   When a version carries derived values, set it through the tool that owns them, such as `corepack use pnpm@x.y.z` for `packageManager` with its integrity hash; never write derived values by hand.
 - Use the same resolved version everywhere the same tool or package appears.
 - Lock the resolved versions in the same change: package dependencies in the package-manager lockfile and `mise.toml` tools in `mise.lock`.

@@ -3,3 +3,4 @@ lockfile = true
 
 [tools]
 lefthook = "latest"
+node = "26"
